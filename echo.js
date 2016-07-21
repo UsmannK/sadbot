@@ -5,7 +5,7 @@ var login = require("facebook-chat-api");
 login({email: details["username"], password: details["password"]}, function callback (err, api) {
   if(err) return console.error(err);
   api.listen(function callback(err, message) {
-    if(message.body.startsWith("@sadbot echo")) {
+    if(typeof message.body == "string" && message.body.startsWith("@sadbot echo")) {
       api.sendMessage(message.body.slice(13), message.threadID);
     }
   });
