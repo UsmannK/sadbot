@@ -22,7 +22,7 @@ login({email: details["username"], password: details["password"]}, function call
     if(message && message.body && message.body.startsWith("@sadbot echo")) {
       api.sendMessage(message.body.slice(13), message.threadID);
     }
-    else if(message && message.body && message.body.startsWith("@bot weather")) {
+    else if(message && message.body && message.body.startsWith("@sadbot weather")) {
     	var city = message.body.slice(13);
     	console.log(city);
     	if(city) {
