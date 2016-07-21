@@ -4,6 +4,7 @@
   "description": "Interactive sad facebook chat bot",
   "main": "echo.js",
   "dependencies": {
+    "dotenv": "^2.0.0",
     "facebook-chat-api": "schmavery/facebook-chat-api"
   },
   "devDependencies": {},
