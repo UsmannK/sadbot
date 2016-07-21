@@ -23,7 +23,7 @@ login({email: details["username"], password: details["password"]}, function call
       api.sendMessage(message.body.slice(13), message.threadID);
     }
     else if(message && message.body && message.body.startsWith("@sadbot weather")) {
-    	var city = message.body.slice(13);
+    	var city = message.body.slice(16);
     	console.log(city);
     	if(city) {
     		geocoder.geocode(city, function(err, res) {
