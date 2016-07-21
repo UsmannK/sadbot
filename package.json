@@ -1,0 +1,23 @@
+{
+  "name": "sadbot",
+  "version": "0.0.1",
+  "description": "Interactive sad facebook chat bot",
+  "main": "echo.js",
+  "dependencies": {
+    "facebook-chat-api": "schmavery/facebook-chat-api"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UsmannK/sadbot.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UsmannK/sadbot/issues"
+  },
+  "homepage": "https://github.com/UsmannK/sadbot#readme"
+}
