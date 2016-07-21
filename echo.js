@@ -22,14 +22,10 @@ login({email: details["username"], password: details["password"]}, function call
     if(message && message.body && message.body.startsWith("@sadbot echo")) {
       api.sendMessage(message.body.slice(13), message.threadID);
     }
-    else if(message && message.body && message.body.startsWith("@bot weather")) {
-    	var city = message.body.slice(13);
-    	console.log(city);
+    else if(message && message.body && message.body.startsWith("@sadbot weather")) {
+    	var city = message.body.slice(16);
     	if(city) {
     		geocoder.geocode(city, function(err, res) {
-	  			// console.log(res[0]['city']);
-	  			// console.log(res[0]['latitude']);
-	  			// console.log(res[0]['longitude']);
 	    		forecast.get([res[0]['latitude'], res[0]['longitude']], function(err, weather) {
 	  				if(err) return console.dir(err);
 	  				api.sendMessage(res[0]['city'] + " Weather: Currently " + Math.floor(weather['currently']['temperature']) + ", and " + weather['currently']['summary'], message.threadID);
