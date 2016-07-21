@@ -5,7 +5,9 @@
   "main": "echo.js",
   "dependencies": {
     "dotenv": "^2.0.0",
-    "facebook-chat-api": "schmavery/facebook-chat-api"
+    "facebook-chat-api": "schmavery/facebook-chat-api",
+    "forecast": "^0.2.1",
+    "node-geocoder": "^3.13.0"
   },
   "devDependencies": {},
   "scripts": {
