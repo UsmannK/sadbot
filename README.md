@@ -32,6 +32,11 @@ Connects to Giphy to send gifs corresponding to search term. If no search term i
 
 `/giphy`
 
+### Nickname
+Sends weather information for given location.
+
+`/nick <username,nickname>, <newNickname>`
+
 ### Remove user
 Removes user from thread, given name or thread nickname
 
@@ -44,15 +49,17 @@ Sends a random space-related image to thread.
 
 `/space`
 
+### Title
+Sets title of thread.
+
+`/title`
+
 ### Weather
 Sends weather information for given location.
 
 `/weather <location>`
 
-### Nickname
-Sends weather information for given location.
 
-`/nick <username,nickname>, <newNickname>`
 
 
 ## Credits
