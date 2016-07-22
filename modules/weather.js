@@ -12,7 +12,8 @@ var forecast = new Forecast({
   }
 });
 
-function trigger(city, threadID, api) { 
+function trigger(city, api, message) { 
+  threadID = message.threadID;
   geocoder.geocode(city, function(err, res) {
 	  forecast.get([res[0]['latitude'], res[0]['longitude']], function(err, weather) {
 		  if(err) return console.dir(err);

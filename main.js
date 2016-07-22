@@ -18,7 +18,7 @@ function loginCallback(err, api) {
       var trigger = commandString.substring(0, endOfCmd(commandString));
       commands.forEach(function(cmd, index) {
         if(trigger == commandDescriptions[index]['trigger']) {
-          cmd.trigger(commandString.slice(trigger.length+1), message.threadID, api);
+          cmd.trigger(commandString.slice(trigger.length+1), api, message);
         }
       });
     }

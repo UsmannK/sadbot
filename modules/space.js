@@ -1,6 +1,7 @@
 var superagent = require('superagent');
 
-function trigger(message, threadID, api) {
+function trigger(message, api, messageObj) {
+    threadID = messageObj.threadID;
     api.sendTypingIndicator(threadID, function() {
     });
     superagent
