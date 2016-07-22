@@ -5,6 +5,7 @@
 
 ### Add user
 Adds user to thread, given name
+
 `/add <name>`
 
 ### Change color
