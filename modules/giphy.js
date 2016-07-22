@@ -5,7 +5,7 @@ function trigger(search, threadID, api) {
     var msg = {
       body: res.data.caption,
       url: res.data.url
-    }
+    };
     api.sendMessage(msg, threadID);
   });
 }
