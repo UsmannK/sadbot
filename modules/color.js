@@ -21,9 +21,8 @@ function handleColor(color, threadID, api) {
   if (color == 'list') {
     var list = 'Built-in colors:\n\n';
     for (var c in colors) {
-      list = list + c + ': ' + colors[c] + '\n';
+      list = list + c + '\n';
     }
-    console.log(list);
     api.sendMessage(list, threadID);
     return INVALID;
   }
