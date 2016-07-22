@@ -14,7 +14,7 @@ function loginCallback(err, api) {
   if(err) return console.error(err);
   api.listen(function callback(err, message) {
     if(message && message.body && message.body.startsWith(process.env.BOT_PREFIX)) {
-      var commandString = message.body.slice(process.env.BOT_PREFIX.length + 1);
+      var commandString = message.body.slice(process.env.BOT_PREFIX.length);
       var trigger = commandString.substring(0, commandString.indexOf(' '));
       commands.forEach(function(cmd, index) {
         if(trigger == commandDescriptions[index]['trigger']) {
