@@ -9,8 +9,8 @@ var forecast = new Forecast({
   cache: true, // Cache API requests?
   ttl: { // How long to cache requests, Uses syntax from moment.js 
          // http://momentjs.com/docs/#/durations/creating/
-    minutes: 27,
-    seconds: 45
+    minutes: 30,
+    seconds: 00
   }
 });
 
