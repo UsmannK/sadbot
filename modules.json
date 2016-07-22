@@ -12,5 +12,12 @@
     "path": "modules/weather.js",
     "usage": "weather <city>",
     "description": "sends the current weather in <city> to thread"
+  },
+  {
+    "name": "color",
+    "trigger": "color",
+    "path": "modules/color.js",
+    "usage": "color <hex>",
+    "description": "changes color of current thread to <hex> or built-in colors"
   }
 ]
