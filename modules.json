@@ -21,6 +21,13 @@
     "description": "sends a random space image to a thread"
   },
   {
+    "name": "color",
+    "trigger": "color",
+    "path": "modules/color.js",
+    "usage": "color <hex>",
+    "description": "changes color of current thread to <hex> or built-in colors"
+  },
+  {
     "name": "giphy",
     "trigger": "giphy",
     "path": "modules/giphy.js",
