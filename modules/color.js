@@ -39,7 +39,8 @@ function handleColor(color, threadID, api) {
   return INVALID;
 }
 
-function trigger(color, threadID, api) { 
+function trigger(color, api, message) {
+  threadID = message.threadID; 
   // 7 is length of valid hex #XXXXXX
   if (!color.startsWith('#') || color.length != 7) {
     color = handleColor(color.toLowerCase(), threadID, api);
