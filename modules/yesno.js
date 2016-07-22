@@ -1,6 +1,7 @@
 var superagent = require('superagent');
 
-function trigger(message, threadID, api) {
+function trigger(_, api, message) {
+  threadID = message.threadID;
   superagent
     .get('http://yesno.wtf/api')
     .set('Accept', 'application/json')
