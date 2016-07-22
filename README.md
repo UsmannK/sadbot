@@ -49,6 +49,11 @@ Sends weather information for given location.
 
 `/weather <location>`
 
+### Nickname
+Sends weather information for given location.
+
+`/nick <username,nickname>, <newNickname>`
+
 
 ## Credits
 *ft. ankles, penguin, i'm only here for lab, sadboy prime, hand, jak the narc, j, private won, kdr, mort, mat,nikolaj, shan, uk*
