@@ -12,5 +12,12 @@
     "path": "modules/weather.js",
     "usage": "weather <city>",
     "description": "sends the current weather in <city> to thread"
+  },
+  {
+    "name": "giphy",
+    "trigger": "giphy",
+    "path": "modules/giphy.js",
+    "usage": "giphy <phrase>",
+    "description": "searches <phrase> on giphy and returns a relevant git"
   }
 ]
