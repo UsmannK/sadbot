@@ -12,5 +12,12 @@
     "path": "modules/weather.js",
     "usage": "weather <city>",
     "description": "sends the current weather in <city> to thread"
+  },
+  {
+    "name": "space",
+    "trigger": "space",
+    "path": "modules/space.js",
+    "usage": "space",
+    "description": "sends a random space image to a thread"
   }
 ]

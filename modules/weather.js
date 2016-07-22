@@ -5,12 +5,10 @@ var geocoder = NodeGeocoder(options);
 var forecast = new Forecast({
   service: 'forecast.io',
   key: process.env.FORECAST_IO_KEY,
-  units: 'f', // Only the first letter is parsed
-  cache: true, // Cache API requests?
-  ttl: { // How long to cache requests, Uses syntax from moment.js 
-         // http://momentjs.com/docs/#/durations/creating/
-    minutes: 30,
-    seconds: 00
+  units: 'f',
+  cache: true,
+  ttl: {
+    minutes: 30
   }
 });
 
