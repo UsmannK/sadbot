@@ -4,7 +4,7 @@ var options = { provider:'google' };
 var geocoder = NodeGeocoder(options);
 var forecast = new Forecast({
   service:'forecast.io',
-  key:'78526c408f187d3668e14c3e79aa6202',
+  key:process.env.FORECAST_IO_KEY,
   units:'f', // Only the first letter is parsed
   cache:true, // Cache API requests?
   ttl: { // How long to cache requests, Uses syntax from moment.js 
