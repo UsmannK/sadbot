@@ -15,7 +15,7 @@ function loginCallback(err, api) {
   api.listen(function callback(err, message) {
     if(isCommand(message)) {
       var commandString = message.body.slice(prefixLen);
-      var trigger = commandString.substring(0, commandString.indexOf(' '));
+      var trigger = commandString.substring(0, endOfCmd(commandString));
       commands.forEach(function(cmd, index) {
         if(trigger == commandDescriptions[index]['trigger']) {
           cmd.trigger(commandString.slice(trigger.length+1), message.threadID, api);
@@ -23,6 +23,14 @@ function loginCallback(err, api) {
       });
     }
   });
+}
+
+function endOfCmd(cmd) {
+  if(cmd.indexOf(' ') > 0) {
+    return cmd.indexOf(' ');
+  } else {
+    return cmd.length;
+  }
 }
 
 function isCommand(message) {
