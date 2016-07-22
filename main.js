@@ -13,7 +13,7 @@ login({email: process.env.BOT_USERNAME, password: process.env.BOT_PASSWORD}, log
 function loginCallback(err, api) {
   if(err) return console.error(err);
   api.listen(function callback(err, message) {
-    if(message && message.body && isCommand(message.body)) {
+    if(isCommand(message.body)) {
       var commandString = message.body.slice(prefixLen);
       var trigger = commandString.substring(0, commandString.indexOf(' '));
       commands.forEach(function(cmd, index) {
@@ -26,7 +26,9 @@ function loginCallback(err, api) {
 }
 
 function isCommand(message) {
-  if(process.env.USE_PREFIX == 'true') {
+  if(!(message && message.body)) {
+    return false; 
+  } else if(process.env.USE_PREFIX == 'true') {
     prefixLen = process.env.BOT_PREFIX.length + 1;
     return message.startsWith(process.env.BOT_PREFIX);
   } else {
