@@ -14,6 +14,7 @@ var colors = {
 };
 
 function handleColor(color) {
+  // Get color from color object
   if (colors[color]) {
     return colors[color];
   }
@@ -22,19 +23,17 @@ function handleColor(color) {
     var colorCode = color.charAt(1).repeat(6);
     return '#' + colorCode;
   }
-  //no valid color -- sad
+  // No valid color -- sadboi
   return INVALID;
 }
 
 function trigger(color, threadID, api) { 
-  //7 is length of valid hex #XXX
+  // 7 is length of valid hex #XXXXXX
   if (!color.startsWith('#') || color.length != 7) {
     color = handleColor(color);
   }
   if (color && color != INVALID) {
-    api.changeThreadColor(color, threadID, function() {
-      return;
-    });
+    api.changeThreadColor(color, threadID);
   }
 }
 
