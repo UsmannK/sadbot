@@ -1,18 +1,20 @@
 const INVALID = 'INVALID';
 var colors = {
-  red: '#ff3b30',
-  orange: '#ff9500',
-  yellow: '#ffcc00',
-  green: '#4cd964',
-  teal: '#47778d',
-  blue: '#007aff',
-  purple: '#5856d6',
-  pink: '#ff2d55',
-  grey: '#95a5a6',
-  white: '#95a5a6',
-  black: '#333333',
-  mango: '#FF7056',
-  'rose gold': '#e0929e'
+  'red': '#ff3b30',
+  'orange': '#ff9500',
+  'yellow': '#ffcc00',
+  'green': '#4cd964',
+  'teal': '#47778d',
+  'blue': '#007aff',
+  'purple': '#5856d6',
+  'pink': '#ff2d55',
+  'grey': '#95a5a6',
+  'white': '#95a5a6',
+  'black': '#333333',
+  'mango': '#FF7056',
+  'rose gold': '#e0929e',
+  'space grey': '#4f5b66',
+  'gold': '#D9B650'
 };
 
 function handleColor(color) {
