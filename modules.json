@@ -19,5 +19,12 @@
     "path": "modules/space.js",
     "usage": "space",
     "description": "sends a random space image to a thread"
+  },
+  {
+    "name": "color",
+    "trigger": "color",
+    "path": "modules/color.js",
+    "usage": "color <hex>",
+    "description": "changes color of current thread to <hex> or built-in colors"
   }
 ]
