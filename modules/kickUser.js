@@ -23,7 +23,8 @@ function kickUser(userID, threadID, api) {
   });
 }
 
-function trigger(user, threadID, api) { 
+function trigger(user, api, message) { 
+  var threadID = message.threadID;
   getThreadUsers(threadID, api, function(info){
     var nicknames = info.nicknames;
     var users = info.participantIDs;
