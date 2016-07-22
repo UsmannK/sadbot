@@ -21,11 +21,11 @@
     "description": "sends a random space image to a thread"
   },
   {
-    "name": "kick",
+    "name": "kick user",
     "trigger": "kick",
     "path": "modules/kickUser.js",
-    "usage": "kick <user-name>",
-    "description": "kicks specified member from current thread"
+    "usage": "kick <name of user> or kick <thread nickname>",
+    "description": "kicks specified user from current thread"
   },
   {
     "name": "color",
