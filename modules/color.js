@@ -17,7 +17,16 @@ var colors = {
   'gold': '#D9B650'
 };
 
-function handleColor(color) {
+function handleColor(color, threadID, api) {
+  if (color == 'list') {
+    var list = 'Built-in colors:\n\n';
+    for (var c in colors) {
+      list = list + c + ': ' + colors[c] + '\n';
+    }
+    console.log(list);
+    api.sendMessage(list, threadID);
+    return INVALID;
+  }
   // Get color from color object
   if (colors[color]) {
     return colors[color];
@@ -34,7 +43,7 @@ function handleColor(color) {
 function trigger(color, threadID, api) { 
   // 7 is length of valid hex #XXXXXX
   if (!color.startsWith('#') || color.length != 7) {
-    color = handleColor(color.toLowerCase());
+    color = handleColor(color.toLowerCase(), threadID, api);
   }
   if (color && color != INVALID) {
     api.changeThreadColor(color, threadID);
