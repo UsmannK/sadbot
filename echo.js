@@ -1,3 +1,5 @@
+require('./cronjobs.js')
+
 var login = require("facebook-chat-api");
 var Forecast = require('forecast');
 var forecast = new Forecast({
