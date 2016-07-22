@@ -2,5 +2,4 @@ details.json
 scratch/
 node_modules/
 .env
-imgs/space/*
 !.gitkeep

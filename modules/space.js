@@ -1,6 +1,4 @@
 var superagent = require('superagent');
-var request = require('request');
-var fs = require("fs");
 
 function trigger(message, threadID, api) {
     api.sendTypingIndicator(threadID, function() {
@@ -19,15 +17,11 @@ function trigger(message, threadID, api) {
           index = Math.floor(Math.random() * 22);
         }
       }
-      var picStream = fs.createWriteStream('imgs/space/' + index + ".png");
-      picStream.on('close', function() {
-        var msg = {
-                    body: res.body['data']['children'][index]['data']['title'],
-                    attachment: fs.createReadStream('imgs/space/' + index + ".png")
-                  }
-        api.sendMessage(msg, threadID);
-      });
-      request(res.body['data']['children'][index]['data']['url']).pipe(picStream);
+      var msg = {
+                  body: res.body['data']['children'][index]['data']['title'],
+                  url: res.body['data']['children'][index]['data']['url']
+                }
+      api.sendMessage(msg, threadID);
   });
 }
 
