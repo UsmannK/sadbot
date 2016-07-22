@@ -21,6 +21,13 @@
     "description": "sends a random space image to a thread"
   },
   {
+    "name": "kick user",
+    "trigger": "kick",
+    "path": "modules/kickUser.js",
+    "usage": "kick <name of user> or kick <thread nickname>",
+    "description": "kicks specified user from current thread"
+  },
+  {
     "name": "color",
     "trigger": "color",
     "path": "modules/color.js",
@@ -41,4 +48,5 @@
     "usage": "decide",
     "description": "decides on an answer to any yes/no question and gives a (dis)approving gif"
   }
+  
 ]
