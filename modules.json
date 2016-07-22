@@ -64,9 +64,9 @@
   },
   {
     "name": "title",
-    "trigger": "setTitle",
+    "trigger": "title",
     "path": "modules/title.js",
-    "usage": "setTitle <title>",
+    "usage": "title <title>",
     "description": "Sets the title of current thread"
   }
   
