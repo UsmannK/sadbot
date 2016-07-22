@@ -3,7 +3,6 @@ var request = require('request');
 var fs = require("fs");
 
 function trigger(message, threadID, api) {
-  console.log("here");
     api.sendTypingIndicator(threadID, function() {
     });
     superagent
@@ -11,6 +10,7 @@ function trigger(message, threadID, api) {
       .set('Accept', 'application/json')
       .end(function(err, res) {
       var index = Math.floor(Math.random() * 22);
+      // Skip links that do not directly link to an image
       while(true) {
         var url = res.body['data']['children'][index]['data']['url'];
         if (url.indexOf("jpg") >= 0 || url.indexOf("png") >= 0) {
@@ -21,7 +21,6 @@ function trigger(message, threadID, api) {
       }
       var picStream = fs.createWriteStream('imgs/space/' + index + ".png");
       picStream.on('close', function() {
-        console.log("here");
         var msg = {
                     body: res.body['data']['children'][index]['data']['title'],
                     attachment: fs.createReadStream('imgs/space/' + index + ".png")
