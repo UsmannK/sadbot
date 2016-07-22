@@ -1,16 +1,16 @@
 [
   {
-    name:'echo',
-    trigger:'echo',
-    path:'modules/echo.js',
-    usage:'echo <message>',
-    description:'repeats <message> back to thread'
+    "name":"echo",
+    "trigger":"echo",
+    "path":"modules/echo.js",
+    "usage":"echo <message>",
+    "description":"repeats <message> back to thread"
   },
   {
-    name:'weather',
-    trigger:'weather',
-    path:'modules/weather.js',
-    usage:'weather <city>',
-    description:'sends the current weather in <city> to thread'
+    "name":"weather",
+    "trigger":"weather",
+    "path":"modules/weather.js",
+    "usage":"weather <city>",
+    "description":"sends the current weather in <city> to thread"
   }
 ]
