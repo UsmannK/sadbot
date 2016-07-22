@@ -2,7 +2,6 @@
 require('./cronjobs.js');
 require('dotenv').config();
 var login = require('facebook-chat-api');
-var helpers = require('./helpers');
 var commandDescriptions = require('./modules.json');
 
 var commands = commandDescriptions .map(function(cmd) {
