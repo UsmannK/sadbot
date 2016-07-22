@@ -4,7 +4,7 @@ var fs = require("fs");
 
 function trigger(message, threadID, api) {
   console.log("here");
-    api.sendTypingIndicator(message.threadID, function() {
+    api.sendTypingIndicator(threadID, function() {
     });
     superagent
       .get('https://www.reddit.com/r/spaceporn.json')
@@ -20,14 +20,15 @@ function trigger(message, threadID, api) {
         }
       }
       var picStream = fs.createWriteStream('imgs/space/' + index + ".png");
-      request(res.body['data']['children'][index]['data']['url']).pipe(picStream);
       picStream.on('close', function() {
+        console.log("here");
         var msg = {
                     body: res.body['data']['children'][index]['data']['title'],
                     attachment: fs.createReadStream('imgs/space/' + index + ".png")
                   }
-        api.sendMessage(msg, message.threadID);
+        api.sendMessage(msg, threadID);
       });
+      request(res.body['data']['children'][index]['data']['url']).pipe(picStream);
   });
 }
 
