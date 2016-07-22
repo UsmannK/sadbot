@@ -33,5 +33,12 @@
     "path": "modules/giphy.js",
     "usage": "giphy <phrase>",
     "description": "searches <phrase> on giphy and returns a relevant git"
+  },
+  {
+    "name": "yesno",
+    "trigger": "decide",
+    "path": "modules/yesno.js",
+    "usage": "decide",
+    "description": "decides on an answer to any yes/no question and gives a (dis)approving gif"
   }
 ]
