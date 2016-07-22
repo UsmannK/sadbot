@@ -28,6 +28,13 @@
     "description": "kicks specified user from current thread"
   },
   {
+    "name": "add user",
+    "trigger": "add",
+    "path": "modules/addUser.js",
+    "usage": "add <name of user>",
+    "description": "adds specified user to current thread"
+  },
+  {
     "name": "color",
     "trigger": "color",
     "path": "modules/color.js",
