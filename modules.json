@@ -61,6 +61,13 @@
     "path": "modules/nickname.js",
     "usage": "nick <Name/Nickname>, <nickname>",
     "description": "Sets the nickname of the given user"
+  },
+  {
+    "name": "title",
+    "trigger": "title",
+    "path": "modules/title.js",
+    "usage": "title <title>",
+    "description": "Sets the title of current thread"
   }
   
 ]
