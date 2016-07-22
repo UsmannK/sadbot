@@ -10,7 +10,9 @@ var colors = {
   pink: '#ff2d55',
   grey: '#95a5a6',
   white: '#95a5a6',
-  black: '#333333'
+  black: '#333333',
+  mango: '#FF7056',
+  'rose gold': '#e0929e'
 };
 
 function handleColor(color) {
@@ -30,7 +32,7 @@ function handleColor(color) {
 function trigger(color, threadID, api) { 
   // 7 is length of valid hex #XXXXXX
   if (!color.startsWith('#') || color.length != 7) {
-    color = handleColor(color);
+    color = handleColor(color.toLowerCase());
   }
   if (color && color != INVALID) {
     api.changeThreadColor(color, threadID);
