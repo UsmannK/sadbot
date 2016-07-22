@@ -7,7 +7,10 @@ var colors = {
   teal: '#47778d',
   blue: '#007aff',
   purple: '#5856d6',
-  pink: '#ff2d55'
+  pink: '#ff2d55',
+  grey: '#95a5a6',
+  white: '#95a5a6',
+  black: '#333333'
 };
 
 function handleColor(color) {
