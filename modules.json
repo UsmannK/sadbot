@@ -26,5 +26,12 @@
     "path": "modules/color.js",
     "usage": "color <hex>",
     "description": "changes color of current thread to <hex> or built-in colors"
+  },
+  {
+    "name": "giphy",
+    "trigger": "giphy",
+    "path": "modules/giphy.js",
+    "usage": "giphy <phrase>",
+    "description": "searches <phrase> on giphy and returns a relevant git"
   }
 ]
