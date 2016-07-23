@@ -9,6 +9,7 @@
     "dotenv": "^2.0.0",
     "facebook-chat-api": "schmavery/facebook-chat-api",
     "figlet": "^1.1.2",
+    "firebase": "^3.2.0",
     "forecast": "^0.2.1",
     "giphy-api": "^1.1.17",
     "node-geocoder": "^3.13.0",
