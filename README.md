@@ -25,6 +25,11 @@ Sends the specified message.
 
 `/echo <message>`
 
+### Figlet
+Sends a figlet ASCII figure of a message.
+
+`/figlet <message>`
+
 ### Giphy
 Connects to Giphy to send gifs corresponding to search term. If no search term is provided, it will send a random gif.
 
@@ -58,13 +63,6 @@ Sets title of thread.
 Sends weather information for given location.
 
 `/weather <location>`
-
-### Figlet
-Sends a figlet ASCII figure of a message.
-
-`/figlet <message>`
-
-
 
 
 ## Credits
