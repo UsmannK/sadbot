@@ -4,6 +4,7 @@
   "description": "Interactive sad facebook chat bot",
   "main": "echo.js",
   "dependencies": {
+    "cowsay": "^1.1.8",
     "cron": "^1.1.0",
     "dotenv": "^2.0.0",
     "facebook-chat-api": "schmavery/facebook-chat-api",
@@ -12,11 +13,13 @@
     "forecast": "^0.2.1",
     "giphy-api": "^1.1.17",
     "node-geocoder": "^3.13.0",
+    "nodemon": "^1.9.2",
     "superagent": "^2.1.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon main"
   },
   "repository": {
     "type": "git",

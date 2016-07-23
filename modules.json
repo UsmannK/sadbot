@@ -89,6 +89,13 @@
     "path": "modules/emoji.js",
     "usage": "emoji <new emoji>",
     "description": "sets the channel emoji to whatever is specified"
+  },
+  {
+    "name": "cowsay",
+    "trigger": "cowsay",
+    "path": "modules/cowsay.js",
+    "usage": "cowsay <message>",
+    "description": "Replies with a cowsay of <message>"
   }
 ]
 
