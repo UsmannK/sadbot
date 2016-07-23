@@ -59,6 +59,10 @@ Sends weather information for given location.
 
 `/weather <location>`
 
+### Cowsay
+Sends the `cowsay` output of a message.
+`/cowsay <message>`
+
 
 
 
