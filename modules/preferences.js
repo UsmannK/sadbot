@@ -1,8 +1,12 @@
 var color = require('./color.js');
+var emoji = require('./emoji.js');
 
 var preferences = {
   color: {
     module: color
+  },
+  emoji: {
+    module: emoji
   }
 };
 
@@ -15,8 +19,11 @@ function trigger(command, api, message) {
   if (option == '') {
     if (command == 'list') {
       var msg = {
-        body: 'list defaults'
+        body: 'valid preferences:\n'
       };
+      for (var preference in preferences) {
+        msg.body += preference + '\n';
+      }
       api.sendMessage(msg, threadID);
     } else if (command == 'reset') {
       firebase(function(db) {
@@ -29,26 +36,27 @@ function trigger(command, api, message) {
       })
     } else {
       var msg = {
-        body: 'pls use format "defaults <option> <setting>" or "defaults list"'
+        body: 'pls use format "prefs <option> <setting>" or "prefs list"'
       };
       api.sendMessage(msg, threadID);
     }
   } else if (option in preferences) {
     for (var preference in preferences) {
       if (preference == option) {
+        // TODO: indicate if a preference failed its trigger so it doesnt get stored in the database
         preferences[preference].module.trigger(setting, api, message);
         firebase(function(db) {
           var threadRef = db.ref(threadID);
           options = {};
           options[option] = setting;
-          threadRef.set(options);
+          threadRef.update(options);
         });
-        return;
+        break;
       }
     }
   } else {
     var msg = {
-      body: 'not a valid default'
+      body: 'not a valid preference'
     };
     api.sendMessage(msg, threadID);
   }
