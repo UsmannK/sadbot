@@ -70,6 +70,13 @@
     "description": "Sets the title of current thread"
   },
   {
+    "name": "figlet",
+    "trigger": "figlet",
+    "path": "modules/figlet.js",
+    "usage": "figlet <message>",
+    "description": "Replies with a figlet of <message>"
+  },
+  {
     "name": "defaults",
     "trigger": "defaults",
     "path": "modules/defaults.js",
