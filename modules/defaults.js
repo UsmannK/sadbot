@@ -1,9 +1,12 @@
-var defaults = [
-  'color',
-  'emoji'
-];
-
 var color = require('./color.js');
+
+var defaults = {
+  color: {
+    module: color
+  }
+};
+
+var firebase = require('../firebase.js')
 
 function trigger(command, api, message) {
   var threadID = message.threadID;
@@ -21,9 +24,18 @@ function trigger(command, api, message) {
       };
       api.sendMessage(msg, threadID);
     }
-  } else if (defaults.indexOf(option) != -1) {
-    if (option == 'color') {
-      color.trigger(setting, api, message);
+  } else if (option in defaults) {
+    for (var key in defaults) {
+      if (key == option) {
+        defaults[key].module.trigger(setting, api, message);
+        firebase(function(db) {
+          var threadRef = db.ref(threadID);
+          threadRef.set({
+            option: setting
+          });
+        });
+        return;
+      }
     }
   } else {
     var msg = {
