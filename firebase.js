@@ -8,11 +8,13 @@ var options = {
 var db = null;
 
 module.exports = function(callback) {
+  // return for callback if db exists
   if (db) {
     callback(db);
     return;
   }
 
+  // initialize db if necessary
   firebase.initializeApp(options);
   db = firebase.database();
   callback(db);
