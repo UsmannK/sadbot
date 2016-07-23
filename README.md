@@ -13,6 +13,10 @@ Changes color of thread given a hex value or built-in color. To see the list of 
 
 `/color <hex>`
 
+### Cowsay
+Sends the `cowsay` output of a message.
+`/cowsay <message>`
+
 `/color red`
 
 ### Decide
@@ -58,9 +62,6 @@ Sets title of thread.
 Sends weather information for given location.
 
 `/weather <location>`
-
-
-
 
 ## Credits
 *ft. ankles, penguin, i'm only here for lab, sadboy prime, hand, jak the narc, j, private won, kdr, mort, mat,nikolaj, shan, uk*

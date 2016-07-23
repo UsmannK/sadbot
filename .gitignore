@@ -1,5 +1,5 @@
 details.json
 scratch/
 node_modules/
-.env
+.env*
 !.gitkeep
