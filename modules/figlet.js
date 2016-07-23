@@ -15,7 +15,7 @@ function trigger(message, api, messageObj) {
 
 function makeFig(message) {
 	return figlet.textSync(message, {
-	    font: 'small'
+	    font: 'Small'
 	}, function(err, data) {
 	    if (err) {
 	        console.log('Something went wrong...');
