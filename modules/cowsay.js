@@ -5,21 +5,15 @@
  *  Author: j <jay@jayhankins.me>
  */
 
-var superagent = require('superagent');
+var cowsay = require('cowsay');
 
 function trigger(message, api, messageObj) {
   threadID = messageObj.threadID;
-  superagent
-  .get('http://cowsay.morecode.org/say')
-  .set('Accept', 'application/json')
-  .query({ format: 'json', message: message })
-  .end(function(err, res) {
-    if (err) {
-      return;
-    }
+  var msg = cowsay.say({
+    text : message
+  });
+  api.sendMessage('```' + msg + '```', threadID);
 
-    api.sendMessage('```' + res.body.cow + '```', threadID);
-    });
 }
 
 module.exports = {
