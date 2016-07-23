@@ -29,11 +29,12 @@ Changes color of thread given a hex value or built-in color. To see the list of 
 
 ### Cowsay
 Sends the `cowsay` output of a message.
+
 `/cowsay <message>`
 
 
 ### Decide
-Makes a yes/no decision for you, and sends a corresponding gif
+Makes a yes/no decision for you, and sends a corresponding gif.
 
 `/decide <yes-or-no question>`
 
