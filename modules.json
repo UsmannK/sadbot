@@ -68,6 +68,13 @@
     "path": "modules/title.js",
     "usage": "title <title>",
     "description": "Sets the title of current thread"
+  },
+  {
+    "name": "defaults",
+    "trigger": "defaults",
+    "path": "modules/defaults.js",
+    "usage": "defaults <option> <setting>",
+    "description": "sets one of the default options for this thread. use defaults list to list possible defaults."
   }
 ]
 
