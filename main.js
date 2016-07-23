@@ -15,13 +15,6 @@ var commands = commandDescriptions .map(function(cmd) {
   return require('./' + cmd['path']);
 });
 
-// initialize firebase connection
-var firebase = require('firebase');
-firebase.initializeApp({
-  serviceAccount: require(process.env.FIREBASE_JSON_LOCATION),
-  databaseURL: process.env.FIREBASE_DATABASE_URL
-});
-
 // login to the bot account
 login({email: process.env.BOT_USERNAME, password: process.env.BOT_PASSWORD}, loginCallback);
 
