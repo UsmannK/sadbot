@@ -15,6 +15,7 @@
   `$ docker ps`
   4. Print app output:
   `$ docker logs <container id>`
+
   * **Remember**: rebuild the image for each code change by running step 1 again.
 
 ## Commands
