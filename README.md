@@ -12,12 +12,12 @@ Adds user to thread, given name
 Changes color of thread given a hex value or built-in color. To see the list of built-in colors, you can run `/color list`
 
 `/color <hex>`
+`/color red`
 
 ### Cowsay
 Sends the `cowsay` output of a message.
 `/cowsay <message>`
 
-`/color red`
 
 ### Decide
 Makes a yes/no decision for you, and sends a corresponding gif
