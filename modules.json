@@ -75,6 +75,13 @@
     "path": "modules/figlet.js",
     "usage": "figlet <message>",
     "description": "Replies with a figlet of <message>"
+  },
+  {
+    "name": "cowsay",
+    "trigger": "cowsay",
+    "path": "modules/cowsay.js",
+    "usage": "cowsay <message>",
+    "description": "Replies with a cowsay of <message>"
   }
 ]
 

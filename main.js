@@ -2,7 +2,7 @@
 require('./cronjobs.js');
 
 // load env variables
-require('dotenv').config();
+require('dotenv').config({path: '.env'});;
 var login = require('facebook-chat-api');
 
 // load module definitions
