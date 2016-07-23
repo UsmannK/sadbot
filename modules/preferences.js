@@ -18,6 +18,15 @@ function trigger(command, api, message) {
         body: 'list defaults'
       };
       api.sendMessage(msg, threadID);
+    } else if (command == 'reset') {
+      firebase(function(db) {
+        var threadRef = db.ref(threadID);
+        threadRef.once('value', function(snap) {
+          for (var preference in snap.val()) {
+            preferences[preference].module.trigger(snap.val()[preference], api, message);
+          }
+        })
+      })
     } else {
       var msg = {
         body: 'pls use format "defaults <option> <setting>" or "defaults list"'
