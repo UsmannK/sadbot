@@ -59,6 +59,11 @@ Sends weather information for given location.
 
 `/weather <location>`
 
+### Figlet
+Sends a figlet ASCII figure of a message.
+
+`/figlet <message>`
+
 
 
 
