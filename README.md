@@ -7,12 +7,15 @@
   2. `node main.js`
 
 ### With Docker:
-  1. `docker build -t sadboyz/sadbot .`
-  2. `docker run -d sadboyz/sadbot .`
+  1. Build the image:
+  `docker build -t sadboyz/sadbot .`
+  2. Run the image:
+  `docker run -d sadboyz/sadbot .`
   3. Get container ID/name:
-     `$ docker ps`
+  `$ docker ps`
   4. Print app output:
-     `$ docker logs <container id>`
+  `$ docker logs <container id>`
+  * **Remember**: rebuild the image for each code change by running step 1 again.
 
 ## Commands
 
