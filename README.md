@@ -1,6 +1,19 @@
 # sadbot 🌊
 *Facebook Messenger bot dedicated to furthering the cause of sadboyz*
 
+## Installation
+### Locally:
+  1. `npm install`
+  2. `node main.js`
+
+### With Docker:
+  1. `docker build -t sadboyz/sadbot .`
+  2. `docker run -d sadboyz/sadbot .`
+  3. Get container ID/name:
+     `$ docker ps`
+  4. Print app output:
+     `$ docker logs <container id>`
+
 ## Commands
 
 ### Add user
