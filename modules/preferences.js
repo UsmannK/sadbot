@@ -28,7 +28,8 @@ function trigger(command, api, message) {
     } else if (command == 'reset') {
       firebase(function(db) {
         var threadRef = db.ref(threadID);
-        threadRef.once('value', function(snap) {
+        var preferencesRef = threadRef.child('/preferences');
+        preferencesRef.once('value', function(snap) {
           for (var preference in snap.val()) {
             preferences[preference].module.trigger(snap.val()[preference], api, message);
           }
@@ -47,9 +48,10 @@ function trigger(command, api, message) {
         preferences[preference].module.trigger(setting, api, message);
         firebase(function(db) {
           var threadRef = db.ref(threadID);
+          var preferencesRef = threadRef.child('/preferences');
           options = {};
           options[option] = setting;
-          threadRef.update(options);
+          preferencesRef.update(options);
         });
         break;
       }
