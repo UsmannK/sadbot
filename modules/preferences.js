@@ -1,6 +1,6 @@
 var color = require('./color.js');
 
-var defaults = {
+var preferences = {
   color: {
     module: color
   }
@@ -24,15 +24,15 @@ function trigger(command, api, message) {
       };
       api.sendMessage(msg, threadID);
     }
-  } else if (option in defaults) {
-    for (var key in defaults) {
-      if (key == option) {
-        defaults[key].module.trigger(setting, api, message);
+  } else if (option in preferences) {
+    for (var preference in preferences) {
+      if (preference == option) {
+        preferences[preference].module.trigger(setting, api, message);
         firebase(function(db) {
           var threadRef = db.ref(threadID);
-          threadRef.set({
-            option: setting
-          });
+          options = {};
+          options[option] = setting;
+          threadRef.set(options);
         });
         return;
       }

@@ -77,11 +77,11 @@
     "description": "Replies with a figlet of <message>"
   },
   {
-    "name": "defaults",
-    "trigger": "defaults",
-    "path": "modules/defaults.js",
-    "usage": "defaults <option> <setting>",
-    "description": "sets one of the default options for this thread. use defaults list to list possible defaults."
+    "name": "preferences",
+    "trigger": "prefs",
+    "path": "modules/preferences.js",
+    "usage": "prefs <option> <setting>",
+    "description": "sets one of the default preferences for this thread. use prefs list to show possible preferences."
   }
 ]
 
