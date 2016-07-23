@@ -22,7 +22,6 @@ function makeFig(message) {
 	        console.dir(err);
 	        return;
 	    }
-	    console.log(data);
 	});
 }
 
