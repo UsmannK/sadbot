@@ -51,6 +51,7 @@ function trigger(command, api, message) {
     // preference exists
     // potential issue with passing prefs message to a different module?
     preferences[option].module.trigger(setting, api, message);
+    // TODO: prevent overwriting the DB when the preference given is invalid
     firebase(function(db) {
       var threadRef = db.ref(threadID);
       var preferencesRef = threadRef.child('/preferences');
