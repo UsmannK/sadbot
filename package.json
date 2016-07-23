@@ -10,7 +10,8 @@
     "forecast": "^0.2.1",
     "node-geocoder": "^3.13.0",
     "superagent": "^2.1.0",
-    "giphy-api": "^1.1.17"
+    "giphy-api": "^1.1.17",
+    "firebase": "^3.2.0"
   },
   "devDependencies": {},
   "scripts": {
