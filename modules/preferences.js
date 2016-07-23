@@ -1,6 +1,7 @@
 // preference setters
 var color = require('./color.js');
 var emoji = require('./emoji.js');
+var title = require('./title.js');
 
 var preferences = {
   color: {
@@ -8,6 +9,9 @@ var preferences = {
   },
   emoji: {
     module: emoji
+  },
+  title: {
+    module: title
   }
 };
 
