@@ -3,6 +3,8 @@ var defaults = [
   'emoji'
 ];
 
+var color = require('./color.js');
+
 function trigger(command, api, message) {
   var threadID = message.threadID;
   var option = command.substring(0, command.indexOf(' '));
