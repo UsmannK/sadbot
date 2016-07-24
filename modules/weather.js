@@ -12,6 +12,22 @@ var forecast = new Forecast({
     minutes: 30
   }
 });
+var weatherEmojis = {
+  'clear-day': '☀️',
+  'clear-night': '🌚',
+  'rain': '🌧',
+  'snow': '❄️',
+  'sleet': '🌨',
+  'wind': '💨',
+  'fog': '🌫',
+  'cloudy': '☁️',
+  'partly-cloudy-day': '🌤',
+  'partly-cloudy-night': '☁️'
+};
+
+function getEmoji(weather) {
+  return weatherEmojis[weather] ? weatherEmojis[weather] : '';
+}
 
 function trigger(city, api, message) { 
   var args = message.body.split(" ");
@@ -26,8 +42,9 @@ function trigger(city, api, message) {
         	response += moment.unix(day['time']).format("dddd") + ": " + day['summary'] + "\n";
         });
 	  } else {
+      var weatherEmoji = getEmoji(weather['currently']['icon']);
 	  	response = "Currently " + Math.floor(weather['currently']['temperature']) + "°F, and "
-          + weather['currently']['summary'].toLowerCase() + ". " + weather['daily']['data'][0]['summary'];
+          + weather['currently']['summary'].toLowerCase() + ". " + weather['daily']['data'][0]['summary'] + " " + weatherEmoji;
 	  }
       api.sendMessage(response, threadID);
     });
