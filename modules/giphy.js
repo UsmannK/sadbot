@@ -2,7 +2,8 @@ var giphy = require('giphy-api')();
 
 function trigger(search, api, message) {
   threadID = message.threadID;
-  giphy.random(search).then(function(res) {
+  giphy.random(search, function(err, res) {
+    if (err) return console.error(err);
     var msg = {
       body: res.data.caption,
       url: res.data.url
