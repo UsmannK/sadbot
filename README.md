@@ -4,7 +4,7 @@
 ## Installation
 ### Locally:
   1. `npm install`
-  2. `node main.js`
+  2. `npm run start`
 
 ### With Docker:
   1. Build the image: `docker build -t sadboyz/sadbot .`
