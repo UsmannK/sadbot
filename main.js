@@ -31,6 +31,9 @@ function loginCallback(err, api) {
         }
       });
     }
+    if (message.threadID && message.body) api.deleteThread(message.threadID, function(err) {
+      if (err) return console.log(err);
+    });
   });
 }
 
