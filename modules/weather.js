@@ -43,8 +43,8 @@ function trigger(city, api, message) {
         });
 	  } else {
       var weatherEmoji = getEmoji(weather['currently']['icon']);
-	  	response = weatherEmoji + " Currently " + Math.floor(weather['currently']['temperature']) + "°F, and "
-          + weather['currently']['summary'].toLowerCase() + ". " + weather['daily']['data'][0]['summary'];
+	  	response = "Currently " + Math.floor(weather['currently']['temperature']) + "°F, and "
+          + weather['currently']['summary'].toLowerCase() + ". " + weather['daily']['data'][0]['summary'] + " " + weatherEmoji;
 	  }
       api.sendMessage(response, threadID);
     });
