@@ -1,0 +1,12 @@
+{
+  "botUsername": "<facebook login email>",
+  "botPassword": "<facebook password>",
+  "usePrefix": "<boolean literal whether or not to use a prefix for development>",
+  "botPrefix": "<command prefix>",
+  "forecastIoKey": "<api key for forecast.io>",
+  // firebase config
+  "firebase": {
+    "serviceAccount": "<json object containing firebase service account details>",
+    "databaseURL": "<firebase database location>"
+  }
+}
