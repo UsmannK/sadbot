@@ -96,6 +96,20 @@
     "path": "modules/cowsay.js",
     "usage": "cowsay <message>",
     "description": "Replies with a cowsay of <message>"
+  },
+  {
+    "name": "poll",
+    "trigger": "poll",
+    "path": "modules/poll.js",
+    "usage": "poll <message>",
+    "description": "Create a poll <message>"
+  },
+   {
+    "name": "summary",
+    "trigger": "smmry",
+    "path": "modules/smmry.js",
+    "usage": "summary <link>",
+    "description": "Summarize a <link>"
   }
 ]
 
