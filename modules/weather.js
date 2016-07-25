@@ -3,9 +3,10 @@ var NodeGeocoder = require('node-geocoder');
 var moment = require('moment');
 var options = { provider:'google' };
 var geocoder = NodeGeocoder(options);
+var config = require('config');
 var forecast = new Forecast({
   service: 'forecast.io',
-  key: process.env.FORECAST_IO_KEY,
+  key: config.get('forecastIoKey'),
   units: 'f',
   cache: true,
   ttl: {

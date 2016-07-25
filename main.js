@@ -1,8 +1,8 @@
 // start up scheduled tasks
 require('./cronjobs.js');
 
-// load env variables
-require('dotenv').config({path: '.env'});;
+// load config
+var config = require('config');
 var login = require('facebook-chat-api');
 
 // load module definitions
@@ -16,7 +16,7 @@ var commands = commandDescriptions .map(function(cmd) {
 });
 
 // login to the bot account
-login({email: process.env.BOT_USERNAME, password: process.env.BOT_PASSWORD}, loginCallback);
+login({email: config.get('botUsername'), password: config.get('botPassword')}, loginCallback);
 
 // parse messages for handling
 function loginCallback(err, api) {
@@ -46,11 +46,11 @@ function endOfCmd(cmd) {
 
 // determine if a received message is a command
 function isCommand(message) {
-  if(!(message && message.body)) {
+  if (!(message && message.body)) {
     return false;
-  } else if(process.env.USE_PREFIX == 'true') {
-    prefixLen = process.env.BOT_PREFIX.length + 1;
-    return message.body.startsWith(process.env.BOT_PREFIX);
+  } else if (config.get('usePrefix')) {
+    prefixLen = config.get('botPrefix').length + 1;
+    return message.body.startsWith(config.get('botPrefix'));
   } else {
     return message.body.startsWith('/');
   }

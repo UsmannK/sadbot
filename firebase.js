@@ -1,9 +1,5 @@
 var firebase = require('firebase');
-
-var options = {
-  serviceAccount: require(process.env.FIREBASE_JSON_LOCATION),
-  databaseURL: process.env.FIREBASE_DATABASE_URL
-};
+var config = require('config');
 
 var db = null;
 
@@ -15,7 +11,10 @@ module.exports = function(callback) {
   }
 
   // initialize db if necessary
-  firebase.initializeApp(options);
+  firebase.initializeApp({
+    serviceAccount: config.get('firebase.serviceAccount'),
+    databaseURL: config.get('firebase.databaseURL')
+  });
   db = firebase.database();
   callback(db);
 }
