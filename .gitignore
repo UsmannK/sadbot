@@ -1,4 +1,5 @@
 details.json
+firebase.json
 scratch/
 node_modules/
 .env*

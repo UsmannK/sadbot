@@ -46,7 +46,9 @@ function trigger(color, api, message) {
     color = handleColor(color.toLowerCase(), threadID, api);
   }
   if (color && color != INVALID) {
-    api.changeThreadColor(color, threadID);
+    api.changeThreadColor(color, threadID, function(err) {
+      if (err) return console.error(err);
+    });
   }
 }
 

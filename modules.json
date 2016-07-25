@@ -77,6 +77,20 @@
     "description": "Replies with a figlet of <message>"
   },
   {
+    "name": "preferences",
+    "trigger": "prefs",
+    "path": "modules/preferences.js",
+    "usage": "prefs <option> <setting>",
+    "description": "sets one of the default preferences for this thread. use prefs list to show possible preferences."
+  },
+  {
+    "name": "emoji",
+    "trigger": "emoji",
+    "path": "modules/emoji.js",
+    "usage": "emoji <new emoji>",
+    "description": "sets the channel emoji to whatever is specified"
+  },
+  {
     "name": "cowsay",
     "trigger": "cowsay",
     "path": "modules/cowsay.js",
