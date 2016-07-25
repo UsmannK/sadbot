@@ -2,4 +2,5 @@ scratch/
 node_modules/
 .env*
 !.gitkeep
-config/default.json
+config/
+!config/default.json.example
