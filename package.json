@@ -16,8 +16,10 @@
     "giphy-api": "^1.1.17",
     "moment": "^2.14.1",
     "node-geocoder": "^3.13.0",
+    "node-summary": "^1.1.0",
     "nodemon": "^1.9.2",
-    "superagent": "^2.1.0"
+    "superagent": "^2.1.0",
+    "unfluff": "^1.1.0"
   },
   "devDependencies": {},
   "scripts": {
