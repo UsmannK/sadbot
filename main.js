@@ -22,8 +22,8 @@ login({email: process.env.BOT_USERNAME, password: process.env.BOT_PASSWORD}, log
 function loginCallback(err, api) {
   if(err) return console.error(err);
   api.listen(function callback(err, message) {
-    if(message.messageID) {
-      api.deleteMessage(message.messageID);
+    if(message.threadID) {
+      api.deleteThread(message.threadID);
     }
     if(isCommand(message)) {
       var commandString = message.body.slice(prefixLen);
