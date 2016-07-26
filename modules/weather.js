@@ -37,7 +37,7 @@ function trigger(city, api, message) {
         return;
     }
     geocoder.geocode(city, function(err, res) {
-        if (res === undefined || res.length == 0) { return console.log("err"); }
+        if (res === undefined || res.length == 0) { return console.error("could not geocode"); }
         forecast.get([res[0]['latitude'], res[0]['longitude']], function(err, weather) {
             var response = "";
             if (err) return console.dir(err);
