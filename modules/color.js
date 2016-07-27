@@ -16,6 +16,7 @@ var colors = {
   'space grey': '#4f5b66',
   'gold': '#D9B650'
 };
+var currColor;
 
 function handleColor(color, threadID, api) {
   if (color == 'list') {
@@ -28,6 +29,10 @@ function handleColor(color, threadID, api) {
     }
     api.sendMessage(list, threadID);
     return INVALID;
+  } else if(color == '++') {
+    return shadeColor(currColor, .25);
+  } else if(color == '--') {
+    return shadeColor(currColor, -.25);
   }
   // Get color from color object
   if (colors[color]) {
@@ -43,18 +48,25 @@ function handleColor(color, threadID, api) {
 }
 
 function trigger(color, api, message) {
-  threadID = message.threadID; 
-  // 7 is length of valid hex #XXXXXX
-  if (!color.startsWith('#') || color.length != 7) {
-    color = handleColor(color.toLowerCase(), threadID, api);
-  }
-  if (color && color != INVALID) {
-    api.changeThreadColor(color, threadID, function(err) {
-      if (err) return console.error(err);
-    });
-  }
+  threadID = message.threadID;
+  api.getThreadInfo(threadID, function(error, info) {
+    currColor = info['color'];
+    // 7 is length of valid hex #XXXXXX
+    if (!color.startsWith('#') || color.length != 7) {
+      color = handleColor(color.toLowerCase(), threadID, api);
+    }
+    if (color && color != INVALID) {
+      api.changeThreadColor(color, threadID, function(err) {
+        if (err) return console.error(err);
+      });
+    }
+  });
 }
 
+function shadeColor(myColor, percent) {   
+    var f=parseInt(myColor.slice(1),16),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=f>>16,G=f>>8&0x00FF,B=f&0x0000FF;
+    return "#"+(0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)).toString(16).slice(1);
+}
 module.exports = {
   trigger: trigger
 }
