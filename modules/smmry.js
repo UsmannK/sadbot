@@ -13,7 +13,8 @@ function trigger(message, api, messageObj) {
             var extracted = extractor.lazy(res.text, 'en');
             var title = extracted.title();
             var content = extracted.text();
-            if(err) {console.error("could not get content"); return;}
+            if (err) { console.error("could not get content");
+                return; }
             // Make request ot api.smmry
             superagent
                 .post("http://api.smmry.com/&SM_API_KEY=" + config.get('smmryKey') + "&SM_LENGTH=3&SM_WITH_BREAK")
@@ -22,16 +23,22 @@ function trigger(message, api, messageObj) {
                 .send('sm_api_input=' + content)
                 .end(function(err, res) {
                     // If the API limit has been reached, used local summarization
-                    if (res.body['sm_api_content'] && res.body['sm_api_content'] == 2) {
-                        summaryTool.summarize(title, content, function(err, summary) {
-                            if (err) console.log("Something went wrong.");
-                            // console.log("Original Length " + (title.length + content.length));
-                            // console.log("Summary Length " + summary.length);
-                            // console.log("Summary Ratio: " + (100 - (100 * (summary.length / (title.length + content.length)))));
-                            api.sendMessage(summary, threadID);
-                        });
-                    } else {
+                    if (res.body['sm_api_error']) {
+                        if (res.body['sm_api_error'] == 1) {
+                            console.error("INSUFFICIENT VARIABLES");
+                        } else if (res.body['sm_api_content'] && res.body['sm_api_error'] == 2) {
+                            summaryTool.summarize(title, content, function(err, summary) {
+                                if (err) console.log("Something went wrong.");
+                                // console.log("Original Length " + (title.length + content.length));
+                                // console.log("Summary Length " + summary.length);
+                                // console.log("Summary Ratio: " + (100 - (100 * (summary.length / (title.length + content.length)))));
+                                api.sendMessage(summary, threadID);
+                            });
+                        }
+                    } else if (res.body['sm_api_content']) {
                         api.sendMessage(res.body['sm_api_content'].replaceAll("[BREAK]", "\n"), threadID);
+                    } else {
+                        console.error("could not summarize");
                     }
                 });
         });
