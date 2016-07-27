@@ -9,12 +9,12 @@ function trigger(message, api, messageObj) {
     superagent
         .get(message)
         .end(function(err, res) {
+            if (err) { console.error("could not get content"); return; }
             // Lazy extract text from HTML response
             var extracted = extractor.lazy(res.text, 'en');
             var title = extracted.title();
             var content = extracted.text();
-            if (err) { console.error("could not get content");
-                return; }
+
             // Make request ot api.smmry
             superagent
                 .post("http://api.smmry.com/&SM_API_KEY=" + config.get('smmryKey') + "&SM_LENGTH=3&SM_WITH_BREAK")
