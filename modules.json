@@ -110,6 +110,13 @@
     "path": "modules/smmry.js",
     "usage": "summary <link>",
     "description": "Summarize a <link>"
+  },
+   {
+    "name": "help",
+    "trigger": "help",
+    "path": "modules/help.js",
+    "usage": "help",
+    "description": "Show sadbot usage and descriptions"
   }
 ]
 
