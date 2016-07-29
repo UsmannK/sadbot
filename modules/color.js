@@ -1,3 +1,5 @@
+var Color = require('color');
+
 const INVALID = 'INVALID';
 var colors = {
   'red': '#ff3b30',
@@ -29,10 +31,10 @@ function handleColor(color, threadID, api) {
     }
     api.sendMessage(list, threadID);
     return INVALID;
-  } else if(color == '++') {
-    return shadeColor(currColor, .25);
-  } else if(color == '--') {
-    return shadeColor(currColor, -.25);
+  } else if((color == '++') || (color == 'lighter') || (color == 'lighten')) {
+    return Color(currColor).lighten(0.25).hexString();
+  } else if((color == '--') || (color == 'darker') || (color == 'darken')) {
+    return Color(currColor).darken(0.25).hexString();
   }
   // Get color from color object
   if (colors[color]) {
@@ -49,7 +51,8 @@ function handleColor(color, threadID, api) {
 
 function trigger(color, api, message) {
   threadID = message.threadID;
-  api.getThreadInfo(threadID, function(error, info) {
+  api.getThreadInfo(threadID, function(err, info) {
+    if (err) return console.log(err);
     currColor = info['color'];
     // 7 is length of valid hex #XXXXXX
     if (!color.startsWith('#') || color.length != 7) {
@@ -63,10 +66,6 @@ function trigger(color, api, message) {
   });
 }
 
-function shadeColor(myColor, percent) {   
-    var f=parseInt(myColor.slice(1),16),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=f>>16,G=f>>8&0x00FF,B=f&0x0000FF;
-    return "#"+(0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)).toString(16).slice(1);
-}
 module.exports = {
   trigger: trigger
 }
