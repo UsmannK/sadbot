@@ -119,7 +119,7 @@
     "description": "Show sadbot usage and descriptions"
   },
   {
-	"name": "vote",
+	  "name": "vote",
     "trigger": "vote",
     "path": "modules/vote.js",
     "usage": "vote <option #>",
