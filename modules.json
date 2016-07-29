@@ -124,6 +124,13 @@
     "path": "modules/vote.js",
     "usage": "vote <option #>",
     "description": "Vote for a poll option"  	
+  },
+  {
+    "name": "snippets",
+    "trigger": "snip",
+    "path": "modules/snippet.js",
+    "usage": "snip <command>",
+    "description": "snippets"
   }
 ]
 
