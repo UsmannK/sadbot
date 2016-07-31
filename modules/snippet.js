@@ -1,13 +1,12 @@
-
-var firebase = require('../firebase.js')
+var firebase = require('../firebase.js');
 
 function trigger(command, api, message) {
   var option = command.substring(0, command.indexOf(' '));
   var setting = command.substring(command.indexOf(' ') + 1);
-  console.log(option,"-",setting);
   var threadID = message.threadID;
 
   if(option == "save") { 
+    //snip save <key> <multiple words>
   	var key = setting.substring(0, setting.indexOf(' '));
   	var val = setting.substring(setting.indexOf(' ') + 1);
   	firebase(function(db) {
@@ -16,7 +15,7 @@ function trigger(command, api, message) {
   	});
   }
   else if(setting == "list") {
-  	console.log('list');
+    //snip list
   	firebase(function(db) {
         var threadRef = db.ref(threadID);
         var preferencesRef = threadRef.child('snip');
@@ -26,7 +25,6 @@ function trigger(command, api, message) {
           for(key in vals) {
             string+=key+" - "+vals[key].text+"\n";
           }
-          console.log(string);
           api.sendMessage(string, threadID);
         })
       })
