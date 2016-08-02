@@ -131,13 +131,6 @@
     "path": "modules/snippet.js",
     "usage": "snip <command>",
     "description": "snippets"
-  },
-  {
-    "name": "harambe",
-    "trigger": "harambe",
-    "path": "modules/harambe.js",
-    "usage": "harambe",
-    "description": "show us the glorious harambe"
   }
 ]
 
