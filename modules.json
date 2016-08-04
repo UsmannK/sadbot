@@ -131,6 +131,13 @@
     "path": "modules/snippet.js",
     "usage": "snip <command>",
     "description": "snippets"
+  },
+  {
+    "name": "xkcd",
+    "trigger": "xkcd",
+    "path": "modules/xkcd.js",
+    "usage": "xkcd <comic-id>",
+    "description": "xkcd"
   }
 ]
 

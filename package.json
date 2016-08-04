@@ -19,6 +19,7 @@
     "node-geocoder": "^3.13.0",
     "node-summary": "^1.1.0",
     "nodemon": "^1.9.2",
+    "request": "^2.74.0",
     "superagent": "^2.1.0",
     "unfluff": "^1.1.0"
   },
