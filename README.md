@@ -25,8 +25,11 @@ Adds user to thread, given name
 Changes color of thread given a hex value or built-in color. To see the list of built-in colors, you can run `/color list`
 
 `/color <hex>`
+
 `/color red`
+
 `/color ++` (increase color brightness)
+
 `/color --` (decrease color brightness)
 
 ### Cowsay
@@ -83,19 +86,24 @@ Sets title of thread.
 Sends weather information for given location.
 
 `/weather <location>`
+
 `/weather <location> daily`
 
 ### Emoji
 Changes the emoji based on a word or emoji
 
 `/emoji <emoji character>`
+
 `/emoji <word>`
 
 ### Poll
 Creates a poll that users in the chat can view and vote
 `/poll create <question>`
+
 `/poll add <option>` Note that `/poll add decide` will automatically add a Yes and No option
+
 `/poll view` Print the poll
+
 `/poll delete`Delete the poll
 
 ### Vote
@@ -106,6 +114,7 @@ Creates a poll that users in the chat can view and vote
 
 ### XKCD
 `/xkcd random` Random XKCD comic
+
 `/xkcd today` Most recent XKCD comic
 
 ### Movie Search
