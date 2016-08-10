@@ -138,6 +138,13 @@
     "path": "modules/xkcd.js",
     "usage": "xkcd <comic-id>",
     "description": "xkcd"
+  },
+  {
+    "name": "movie",
+    "trigger": "movie",
+    "path": "modules/movie.js",
+    "usage": "movie <search>",
+    "description": "Search a movie or TV Show"
   }
 ]
 
