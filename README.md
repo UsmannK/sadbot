@@ -25,7 +25,12 @@ Adds user to thread, given name
 Changes color of thread given a hex value or built-in color. To see the list of built-in colors, you can run `/color list`
 
 `/color <hex>`
+
 `/color red`
+
+`/color ++` (increase color brightness)
+
+`/color --` (decrease color brightness)
 
 ### Cowsay
 Sends the `cowsay` output of a message.
@@ -82,11 +87,38 @@ Sends weather information for given location.
 
 `/weather <location>`
 
+`/weather <location> daily`
+
 ### Emoji
 Changes the emoji based on a word or emoji
 
 `/emoji <emoji character>`
+
 `/emoji <word>`
+
+### Poll
+Creates a poll that users in the chat can view and vote
+`/poll create <question>`
+
+`/poll add <option>` Note that `/poll add decide` will automatically add a Yes and No option
+
+`/poll view` Print the poll
+
+`/poll delete`Delete the poll
+
+### Vote
+`/vote <index>` To be used in conjunction with `/poll view`
+
+### Summary
+`/smmry <url>` Produces a summary of an article
+
+### XKCD
+`/xkcd random` Random XKCD comic
+
+`/xkcd today` Most recent XKCD comic
+
+### Movie Search
+`/movie <search term>` Search for a movie or TV show. Returns cover art, run status, and IMDb rating
 
 ## Credits
 *ft. ankles, penguin, i'm only here for lab, sadboy prime, hand, jak the narc, j, private won, kdr, mort, mat,nikolaj, shan, uk*
