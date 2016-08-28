@@ -31,12 +31,13 @@ function getEmoji(weather) {
 }
 
 function trigger(city, api, message) {
+	var sendCity = city;
     var args = message.body.split(" ");
     threadID = message.threadID;
-    if (args[1] === undefined) {
-        return;
+    if (city === "") {
+        sendCity = "West Lafayette";
     }
-    geocoder.geocode(city, function(err, res) {
+    geocoder.geocode(sendCity, function(err, res) {
         if (res === undefined || res.length == 0) { return console.error("could not geocode"); }
         forecast.get([res[0]['latitude'], res[0]['longitude']], function(err, weather) {
             var response = "";
