@@ -31,7 +31,7 @@ function getEmoji(weather) {
 }
 
 function trigger(city, api, message) {
-	var sendCity = city;
+    var sendCity = city;
     var args = message.body.split(" ");
     threadID = message.threadID;
     if (city === "") {
@@ -50,7 +50,13 @@ function trigger(city, api, message) {
             } else {
                 var weatherEmoji = getEmoji(weather['currently']['icon']);
                 response = weatherEmoji + " Currently " + Math.floor(weather['currently']['temperature']) + "°F, and " + weather['currently']['summary'].toLowerCase() + ". " + weather['daily']['data'][0]['summary'];
+                console.log(weather['currently']['temperature'] > 70);
+                if(weather['currently']['temperature'] > 70) {
+                    var num = (weather['currently']['humidity']*100) + "%";
+                    response += " Humidity: " + num;
+                }
             }
+            console.log(response);
             api.sendMessage(response, threadID);
         });
     });
