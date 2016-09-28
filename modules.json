@@ -145,6 +145,13 @@
     "path": "modules/movie.js",
     "usage": "movie <search>",
     "description": "Search a movie or TV Show"
+  },
+  {
+    "name": "lmgtfy",
+    "trigger": "lmgtfy",
+    "path": "modules/lmgtfy.js",
+    "usage": "lmgtfy <phrase>",
+    "description": "generates a snarky link for ur dumb friends"
   }
 ]
 
