@@ -28,7 +28,7 @@ function trigger(user, api, message) {
     for (var id in nicks) {
       if (nicks[id] == user) {
         // execute appropriate action
-        doKarma(id, threadID, api, mode);
+        doKarma(id, threadID, message.senderID, api, mode);
         return;
       }
     }
@@ -36,7 +36,7 @@ function trigger(user, api, message) {
     getIDFromName(user, users, threadID, api, function(userID) {
       if (userID != INVALID) {
         // execute appropriate action
-        doKarma(userID, threadID, api, mode);
+        doKarma(userID, threadID, message.senderID, api, mode);
         return;
       }
     });
@@ -62,10 +62,10 @@ function getIDFromName(user, users, threadID, api, callback) {
   });  
 }
 
-function doKarma(userID, threadID, api, mode) {
-  if (mode == PLUS) {
+function doKarma(userID, threadID, senderID, api, mode) {
+  if (mode == PLUS && userID != senderID) {
     doModify(userID, threadID, api, true);
-  } else if (mode == MINUS) {
+  } else if (mode == MINUS && userID != senderID) {
     doModify(userID, threadID, api, false);
   } else if (mode == CHECK) {
     doCheck(userID, threadID, api);
@@ -90,7 +90,7 @@ function doModify(userID, threadID, api, plus) {
         if (snap.val()[userID]) {
           karma[userID] = snap.val()[userID];
         }
-        // increment
+        // change val
         if (plus) {
           karma[userID]++;
         } else {
