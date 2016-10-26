@@ -163,7 +163,7 @@
   {
     "name": "plusplus",
     "trigger": "++",
-    "path": "modules/plusplus.js",
+    "path": "modules/karma.js",
     "usage": "++ <username>",
     "description": "give a user a nice lil karma boost"
   },
