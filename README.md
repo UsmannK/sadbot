@@ -130,5 +130,12 @@ Creates a poll that users in the chat can view and vote
 ### Wolfram
 `/wolfram <query>` Queries wolfram alpha to solve your question
 
+### Karma
+`/++ <user>` Increase a user's karma
+
+`/-- <user>` Decrease a user's karma
+
+`/karma <user>` Check a user's karma
+
 ## Credits
 *ft. ankles, jak the narc, j, kdr, mat, nikolaj, shan, uk*
