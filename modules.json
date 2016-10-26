@@ -152,6 +152,13 @@
     "path": "modules/lmgtfy.js",
     "usage": "lmgtfy <phrase>",
     "description": "generates a snarky link for ur dumb friends"
+  },
+  {
+    "name": "wolfram",
+    "trigger": "wolfram",
+    "path": "modules/wolfram.js",
+    "usage": "wolfram <query>",
+    "description": "Query WolframAlpha"
   }
 ]
 

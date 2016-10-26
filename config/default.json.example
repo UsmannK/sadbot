@@ -9,4 +9,5 @@
     "serviceAccount": "<json object containing firebase service account details>",
     "databaseURL": "<firebase database location>"
   }
+  "wolframAPI" : "<WolframAlphaAPIKey>",
 }

@@ -18,6 +18,7 @@
     "moment": "^2.14.1",
     "node-geocoder": "^3.13.0",
     "node-summary": "^1.1.0",
+    "node-wolfram": "0.0.1",
     "nodemon": "^1.9.2",
     "request": "^2.74.0",
     "superagent": "^2.1.0",
