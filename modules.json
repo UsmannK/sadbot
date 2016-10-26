@@ -159,6 +159,13 @@
     "path": "modules/wolfram.js",
     "usage": "wolfram <query>",
     "description": "Query WolframAlpha"
+  },
+  {
+    "name": "plusplus",
+    "trigger": "++",
+    "path": "modules/plusplus.js",
+    "usage": "++ <username>",
+    "description": "give a user a nice lil karma boost"
   }
 ]
 
