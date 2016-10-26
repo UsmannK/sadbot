@@ -1,8 +1,22 @@
 var firebase = require('../firebase.js')
 
 const INVALID = 'INVALID';
+const PLUS = 'PLUS';
+const MINUS = 'MINUS';
+const CHECK = 'CHECK';
 
 function trigger(user, api, message) {
+  var originalMsg = message.snippet.substring(1);
+  var mode;
+  if (originalMsg.startsWith('++')) {
+    mode = PLUS;
+  } else if (originalMsg.startsWith('--')) {
+    mode = MINUS;
+  } else if (originalMsg.startsWith('karma')) {
+    mode = CHECK;
+  } else {
+    return;
+  }
   // grab threadID
   var threadID = message.threadID;
   // get users and nicks
@@ -12,20 +26,16 @@ function trigger(user, api, message) {
     // check if user used a nickname
     for (var id in nicks) {
       if (nicks[id] == user) {
-        // no self karma
-        if (id == message.senderID) return;
-        // otherwise plusplus
-        plusPlus(id, threadID, api);
+        // execute appropriate action
+        doKarma(userID, threadID, api, mode);
         return;
       }
     }
     // check if user used real name
     getIDFromName(user, users, threadID, api, function(userID) {
       if (userID != INVALID) {
-        // no self karma
-        if (userID == message.senderID) return;
-        // otherwise plusplus
-        plusPlus(userID, threadID, api);
+        // execute appropriate action
+        doKarma(userID, threadID, api, mode);
         return;
       }
     });
@@ -51,7 +61,17 @@ function getIDFromName(user, users, threadID, api, callback) {
   });  
 }
 
-function plusPlus(userID, threadID, api) {
+function doKarma(userID, threadID, api, mode) {
+  if (mode == PLUS) {
+    doModify(userID, threadID, api, true);
+  } else if (mode == MINUS) {
+    doModify(userID, threadID, api, false);
+  } else if (mode == CHECK) {
+    doCheck(userID, threadID, api);
+  }
+}
+
+function doModify(userID, threadID, api, plus) {
   // get real names
   api.getUserInfo(userID, function(err, obj) {
     if (err) return console.error(err);
@@ -70,12 +90,43 @@ function plusPlus(userID, threadID, api) {
           karma[userID] = snap.val()[userID];
         }
         // increment
-        karma[userID]++;
+        if (plus) {
+          karma[userID]++;
+        } else {
+          karma[userID]--;
+        }
         // update in db
         karmaRef.update(karma);
         // send confirmation message
         var msg = {
-          body: obj[userID].firstName + " has " + karma[userID] + " karma"
+          body: obj[userID].firstName + ' has ' + karma[userID] + ' karma'
+        }
+        api.sendMessage(msg, threadID);
+      });
+    });
+  });
+}
+
+function doCheck(userID, threadID, api) {
+  // get real names
+  api.getUserInfo(userID, function(err, obj) {
+    if (err) return console.error(err);
+    // access db
+    firebase(function(db) {
+      // thread
+      var threadRef = db.ref(threadID);
+      // karma settings
+      var karmaRef = threadRef.child('/karma');
+      // initialize karma to 0
+      karma = 0;
+      karmaRef.once('value', function(snap) {
+        // check if user already has karma
+        if (snap.val()[userID]) {
+          karma = snap.val()[userID];
+        }
+        // send confirmation message
+        var msg = {
+          body: obj[userID].firstName + ' has ' + karma + ' karma'
         }
         api.sendMessage(msg, threadID);
       });
