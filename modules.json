@@ -173,6 +173,13 @@
     "path": "modules/karma.js",
     "usage": "-- <username>",
     "description": "be easy, god"
+  },
+  {
+    "name": "karma",
+    "trigger": "karma",
+    "path": "modules/karma.js",
+    "usage": "karma <username>",
+    "description": "check a user's karma"
   }
 ]
 
