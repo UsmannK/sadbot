@@ -6,7 +6,8 @@ const MINUS = 'MINUS';
 const CHECK = 'CHECK';
 
 function trigger(user, api, message) {
-  var originalMsg = message.snippet.substring(1);
+  var originalMsg = message.body.substring(1);
+  if (originalMsg.startsWith(' ')) originalMsg = originalMsg.substring(1);
   var mode;
   if (originalMsg.startsWith('++')) {
     mode = PLUS;
@@ -27,7 +28,7 @@ function trigger(user, api, message) {
     for (var id in nicks) {
       if (nicks[id] == user) {
         // execute appropriate action
-        doKarma(userID, threadID, api, mode);
+        doKarma(id, threadID, api, mode);
         return;
       }
     }
