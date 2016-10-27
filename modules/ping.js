@@ -1,6 +1,8 @@
 const INVALID = 'INVALID';
 
 function trigger(user, api, message) {
+  // get threadID
+  var threadID = message.threadID;
   getThreadUsers(threadID, api, function(info) {
     // get username info
     var nicks = info.nicknames;
@@ -44,11 +46,13 @@ function getIDFromName(user, users, threadID, api, callback) {
 }
 
 function ping(pingerID, pingeeID, api) {
+  // get pinger name
   api.getUserInfo(pingerID, function(err, obj) {
     if (err) return console.error(err);
     msg = {
       body: obj[pingerID].firstName + ' has pinged you!'
     };
+    // send notification
     api.sendMessage(msg, pingeeID);
   });
 }

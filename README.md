@@ -120,5 +120,8 @@ Creates a poll that users in the chat can view and vote
 ### Movie Search
 `/movie <search term>` Search for a movie or TV show. Returns cover art, run status, and IMDb rating
 
+### Ping
+`/ping <user>` Send a user a private message to get their attention.
+
 ## Credits
 *ft. ankles, penguin, i'm only here for lab, sadboy prime, hand, jak the narc, j, private won, kdr, mort, mat,nikolaj, shan, uk*
