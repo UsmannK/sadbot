@@ -194,6 +194,13 @@
     "path": "modules/pokedex.js",
     "usage": "pokedex <pokemon-name or pokemon-id> or pokedex move <move-name>",
     "description": "see information about a pokemon or move"
+  },
+  {
+    "name": "weed",
+    "trigger": "weed",
+    "path": "modules/weed.js",
+    "usage": "weed <strain-name>",
+    "description": "see information on cannabis strains"
   }
 ]
 

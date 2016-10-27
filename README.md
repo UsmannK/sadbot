@@ -139,6 +139,11 @@ Sends weather information for given location.
 
 `/weather <location> daily`
 
+### Weed
+Provides strain information and effects for given query.
+
+`/weed <strain name>`
+
 ### Wolfram
 `/wolfram <query>` Queries wolfram alpha to solve your question
 
