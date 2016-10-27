@@ -61,9 +61,13 @@ Connects to Giphy to send gifs corresponding to search term. If no search term i
 `/giphy`
 
 ### Nickname
-Sends weather information for given location.
+Check or modify nicknames
 
-`/nick <username,nickname>, <newNickname>`
+`/nick` Check your own nick
+
+`/nick <username>` Check a specific nick
+
+`/nick <username,nickname>, <newNickname>` Set a nick
 
 ### Remove user
 Removes user from thread, given name or thread nickname
@@ -123,5 +127,18 @@ Creates a poll that users in the chat can view and vote
 ### Ping
 `/ping <user>` Send a user a private message to get their attention.
 
+### LMGTFY
+`/lmgtfy <phrase>` Generates a snarky LMGTFY link (shortened, of course)
+
+### Wolfram
+`/wolfram <query>` Queries wolfram alpha to solve your question
+
+### Karma
+`/++ <user>` Increase a user's karma
+
+`/-- <user>` Decrease a user's karma
+
+`/karma <user>` Check a user's karma
+
 ## Credits
-*ft. ankles, penguin, i'm only here for lab, sadboy prime, hand, jak the narc, j, private won, kdr, mort, mat,nikolaj, shan, uk*
+*ft. ankles, jak the narc, j, kdr, mat, nikolaj, shan, uk, and the sadboyz*

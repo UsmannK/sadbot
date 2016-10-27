@@ -166,6 +166,27 @@
     "path": "modules/ping.js",
     "usage": "ping <user>",
     "description": "send a pm to a user to get their attention"
+  },
+  {
+    "name": "plusplus",
+    "trigger": "++",
+    "path": "modules/karma.js",
+    "usage": "++ <username>",
+    "description": "give a user a nice lil karma boost"
+  },
+  {
+    "name": "minusminus",
+    "trigger": "--",
+    "path": "modules/karma.js",
+    "usage": "-- <username>",
+    "description": "be easy, god"
+  },
+  {
+    "name": "karma",
+    "trigger": "karma",
+    "path": "modules/karma.js",
+    "usage": "karma <username>",
+    "description": "check a user's karma"
   }
 ]
 
