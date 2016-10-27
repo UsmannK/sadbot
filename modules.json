@@ -200,7 +200,7 @@
     "trigger": "weed",
     "path": "modules/weed.js",
     "usage": "weed <strain-name>",
-    "description": "see information cannabis strains"
+    "description": "see information on cannabis strains"
   }
 ]
 
