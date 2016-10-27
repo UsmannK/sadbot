@@ -1,7 +1,7 @@
 var superagent = require('superagent');
 var Client = require('node-wolfram');
 var config = require('config');
-//var Wolfram = new Client(config.get('wolframAPI'));
+var Wolfram = new Client(config.get('wolframAPI'));
 
 function trigger(search, api, messageObj) {
     var threadID = messageObj.threadID;
