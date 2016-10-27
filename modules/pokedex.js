@@ -22,7 +22,7 @@ function getInfo(msg, api) {
 			getPokemonMoveByName(msg[1], function(msg){
 				api.sendMessage(msg, threadID);
 				if (close != null) {
-					fs.unlink('pokedex.png');
+					fs.unlink(close);
 				}
 			})
 		})
@@ -79,13 +79,13 @@ function getPokemonName(name, callback) {
 	    		pokemonData += 'Height: ' + res.height;
 	    	} 
 	    	if (res.sprites.front_default) {
-	    		var picStream = fs.createWriteStream('pokedex.png');
+	    		var picStream = fs.createWriteStream('pokedex_' + res.id + '.png');
 	    		picStream.on('close', function() {
 		            var msg = { 
 		            	body: pokemonData, 
-		            	attachment: fs.createReadStream('pokedex.png') 
+		            	attachment: fs.createReadStream('pokedex_' + res.id + '.png') 
 		            };
-		            callback(msg);
+		            callback(msg, 'pokedex_' + res.id + '.png');
 		       	});
 	            request(res.sprites.front_default).pipe(picStream); 
 	    	} else {
