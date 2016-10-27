@@ -159,6 +159,13 @@
     "path": "modules/wolfram.js",
     "usage": "wolfram <query>",
     "description": "Query WolframAlpha"
+  },
+  {
+    "name": "ping",
+    "trigger": "ping",
+    "path": "modules/ping.js",
+    "usage": "ping <user>",
+    "description": "send a pm to a user to get their attention"
   }
 ]
 
