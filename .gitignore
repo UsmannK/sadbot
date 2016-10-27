@@ -4,4 +4,4 @@ node_modules/
 !.gitkeep
 config/
 !config/default.json.example
-pokemon.png
+pokedex.png
