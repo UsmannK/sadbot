@@ -159,6 +159,27 @@
     "path": "modules/wolfram.js",
     "usage": "wolfram <query>",
     "description": "Query WolframAlpha"
+  },
+  {
+    "name": "plusplus",
+    "trigger": "++",
+    "path": "modules/karma.js",
+    "usage": "++ <username>",
+    "description": "give a user a nice lil karma boost"
+  },
+  {
+    "name": "minusminus",
+    "trigger": "--",
+    "path": "modules/karma.js",
+    "usage": "-- <username>",
+    "description": "be easy, god"
+  },
+  {
+    "name": "karma",
+    "trigger": "karma",
+    "path": "modules/karma.js",
+    "usage": "karma <username>",
+    "description": "check a user's karma"
   }
 ]
 
