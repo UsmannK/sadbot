@@ -1,8 +1,6 @@
 const INVALID = 'INVALID';
 
 function trigger(user, api, message) {
-  // get threadID
-  var threadID = message.threadID;
   getThreadUsers(threadID, api, function(info) {
     // get username info
     var nicks = info.nicknames;
@@ -11,7 +9,7 @@ function trigger(user, api, message) {
     // check nicknames
     for (var id in nicks) {
       if (nicks[id] == user) {
-        //process user
+        ping(message.senderID, id, api);
         return;
       }
     }
@@ -19,7 +17,7 @@ function trigger(user, api, message) {
     // check real names
     getIDFromName(user, users, threadID, api, function(userID) {
       if (userID != INVALID) {
-        // process user
+        ping(message.senderID, userID, api);
         return;
       }
     });
@@ -42,6 +40,16 @@ function getIDFromName(user, users, threadID, api, callback) {
       }
     }
     return callback(INVALID);
+  });
+}
+
+function ping(pingerID, pingeeID, api) {
+  api.getUserInfo(pingerID, function(err, obj) {
+    if (err) return console.error(err);
+    msg = {
+      body: obj[pingerID].firstName + ' has pinged you!'
+    };
+    api.sendMessage(msg, pingeeID);
   });
 }
 
