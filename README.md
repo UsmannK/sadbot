@@ -124,6 +124,9 @@ Creates a poll that users in the chat can view and vote
 ### Movie Search
 `/movie <search term>` Search for a movie or TV show. Returns cover art, run status, and IMDb rating
 
+### Ping
+`/ping <user>` Send a user a private message to get their attention.
+
 ### LMGTFY
 `/lmgtfy <phrase>` Generates a snarky LMGTFY link (shortened, of course)
 
@@ -138,4 +141,4 @@ Creates a poll that users in the chat can view and vote
 `/karma <user>` Check a user's karma
 
 ## Credits
-*ft. ankles, jak the narc, j, kdr, mat, nikolaj, shan, uk*
+*ft. ankles, jak the narc, j, kdr, mat, nikolaj, shan, uk, and the sadboyz*
