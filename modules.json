@@ -187,6 +187,13 @@
     "path": "modules/karma.js",
     "usage": "karma <username>",
     "description": "check a user's karma"
+  },
+  {
+    "name": "pokedex",
+    "trigger": "pokedex",
+    "path": "modules/pokedex.js",
+    "usage": "pokedex <pokemon-name or pokemon-id> or pokedex move <move-name>",
+    "description": "see information about a pokemon or move"
   }
 ]
 
