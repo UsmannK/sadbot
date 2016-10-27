@@ -110,6 +110,14 @@ Creates a poll that users in the chat can view and vote
 
 `/poll delete`Delete the poll
 
+### Pokédex
+Allows access to pokémon and move information
+`/pokedex <pokemon name>` Display pokémon information
+
+`/pokedex <pokemon id>` Display pokémon information
+
+`/pokedex move <move name>` Display move information
+
 ### Vote
 `/vote <index>` To be used in conjunction with `/poll view`
 
