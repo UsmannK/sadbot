@@ -14,9 +14,35 @@
 
 * **Remember**: rebuild the image for each code change by running step 1 again.
 
+## Navigation
+* [Add User](#add-user)
+* [Color](#color)
+* [Decide](#decide)
+* [Echo](#echo)
+* [Emoji](#emoji)
+* [Figlet](#figlet)
+* [Giphy](#giphy)
+* [Karma](#karma)
+* [Let Me Google That for You](#lmgtfy)
+* [Movie Search](#movie-search)
+* [Nickname](#nickname)
+* [Notifications](#ping)
+* [Notifications](#ping)
+* [Poll](#poll)
+* [Pokedex](#pokedex)
+* [Remove User](#remove-user)
+* [Space](#space)
+* [Summary](#summary)
+* [Title](#title)
+* [Vote](#vote)
+* [Weather](#weather)
+* [Weed](#weed)
+* [Wolfram](#wolfram)
+* [XKCD](#XKCD)
+
 ## Commands
 
-### Add user
+### Add User
 Adds user to thread, given name
 
 `/add <name>`
@@ -88,7 +114,7 @@ Check or modify nicknames
 
 `/nick <username,nickname>, <newNickname>` Set a nick
 
-### Ping
+### Notifications
 `/ping <user>` Send a user a private message to get their attention.
 
 ### Poll
@@ -101,7 +127,7 @@ Creates a poll that users in the chat can view and vote
 
 `/poll delete`Delete the poll
 
-### Pokédex
+### Pokedex
 Allows access to pokémon and move information
 `/pokedex <pokemon name>` Display pokémon information
 
@@ -109,7 +135,7 @@ Allows access to pokémon and move information
 
 `/pokedex move <move name>` Display move information
 
-### Remove user
+### Remove User
 Removes user from thread, given name or thread nickname
 
 `/kick <name>`
