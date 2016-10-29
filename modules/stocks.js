@@ -28,7 +28,7 @@ function trigger(search, api, messageObj) {
 }
 
 function arrow(change) {
-	if(change) {
+	if(change > 0) {
 		return String.fromCodePoint(0x2B06);
 	}
 	return String.fromCodePoint(0x2B07);
