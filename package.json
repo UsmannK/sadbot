@@ -24,7 +24,8 @@
     "pokedex-promise-v2": "^3.0.1",
     "request": "^2.74.0",
     "superagent": "^2.1.0",
-    "unfluff": "^1.1.0"
+    "unfluff": "^1.1.0",
+    "yfinance": "0.0.6"
   },
   "devDependencies": {},
   "scripts": {
