@@ -201,6 +201,13 @@
     "path": "modules/weed.js",
     "usage": "weed <strain-name>",
     "description": "see information on cannabis strains"
+  },
+  {
+    "name": "stocks",
+    "trigger": "stocks",
+    "path": "modules/stocks.js",
+    "usage": "stocks <name>",
+    "description": "see information on stock price"
   }
 ]
 
