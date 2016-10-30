@@ -87,7 +87,7 @@ function doModify(userID, threadID, api, plus) {
       karma[userID] = 0;
       karmaRef.once('value', function(snap) {
         // check if user already has karma
-        if (snap.val()[userID]) {
+        if (snap.val() && snap.val()[userID]) {
           karma[userID] = snap.val()[userID];
         }
         // change val
@@ -122,7 +122,7 @@ function doCheck(userID, threadID, api) {
       karma = 0;
       karmaRef.once('value', function(snap) {
         // check if user already has karma
-        if (snap.val()[userID]) {
+        if (snap.val() && snap.val()[userID]) {
           karma = snap.val()[userID];
         }
         // send confirmation message
