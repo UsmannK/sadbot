@@ -7,11 +7,12 @@ function trigger(user, api, message) {
     // get username info
     var nicks = info.nicknames;
     var users = info.participantIDs;
+    var threadName = info.name;
 
     // check nicknames
     for (var id in nicks) {
       if (nicks[id] == user) {
-        ping(message.senderID, id, api);
+        ping(message.senderID, id, threadName, api);
         return;
       }
     }
@@ -19,7 +20,7 @@ function trigger(user, api, message) {
     // check real names
     getIDFromName(user, users, threadID, api, function(userID) {
       if (userID != INVALID) {
-        ping(message.senderID, userID, api);
+        ping(message.senderID, userID, threadName, api);
         return;
       }
     });
@@ -45,12 +46,12 @@ function getIDFromName(user, users, threadID, api, callback) {
   });
 }
 
-function ping(pingerID, pingeeID, api) {
+function ping(pingerID, pingeeID, threadName, api) {
   // get pinger name
   api.getUserInfo(pingerID, function(err, obj) {
     if (err) return console.error(err);
     msg = {
-      body: obj[pingerID].firstName + ' has pinged you!'
+      body: obj[pingerID].firstName + ' has pinged you in ' + threadName + '!'
     };
     // send notification
     api.sendMessage(msg, pingeeID);
