@@ -50,9 +50,16 @@ function ping(pingerID, pingeeID, threadName, api) {
   // get pinger name
   api.getUserInfo(pingerID, function(err, obj) {
     if (err) return console.error(err);
-    msg = {
-      body: obj[pingerID].firstName + ' has pinged you in ' + threadName + '!'
-    };
+    var msg;
+    if (threadName && threadName != '') {
+      msg = {
+        body: obj[pingerID].firstName + ' has pinged you in ' + threadName + '!'
+      };
+    } else {
+      msg = {
+        body: obj[pingerID].firstName + ' has pinged you!'
+      };
+    }
     // send notification
     api.sendMessage(msg, pingeeID);
   });
