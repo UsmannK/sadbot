@@ -51,12 +51,15 @@ function ping(pingerID, pingeeID, threadName, api) {
   api.getUserInfo(pingerID, function(err, obj) {
     if (err) return console.error(err);
     var msg;
+    // check if the thread is named
     if (threadName && threadName != '') {
       msg = {
+        // use threadname
         body: obj[pingerID].firstName + ' has pinged you in ' + threadName + '!'
       };
     } else {
       msg = {
+        // no threadname
         body: obj[pingerID].firstName + ' has pinged you!'
       };
     }
