@@ -27,7 +27,6 @@
 * [Movie Search](#movie-search)
 * [Nickname](#nickname)
 * [Notifications](#ping)
-* [Notifications](#ping)
 * [Poll](#poll)
 * [Pokedex](#pokedex)
 * [Remove User](#remove-user)
