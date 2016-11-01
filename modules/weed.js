@@ -59,7 +59,7 @@ function buildResult(ucpc, callback) {
 		if (info.genetics.names) {
 			strain += ' (' + info.genetics.names + ')\n\n'
 		} else {
-			'\n\n';
+			strain += '\n\n';
 		}
 		getEffects(ucpc, function(effects) {
 			for (var effect in effects) {
