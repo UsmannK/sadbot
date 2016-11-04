@@ -63,9 +63,9 @@ function getIDFromName(user, users, threadID, api, callback) {
 }
 
 function doKarma(userID, threadID, senderID, api, mode) {
-  if (mode == PLUS && userID != senderID) {
+  if (mode == PLUS && userID != senderID && isCooledDown(senderID)) {
     doModify(userID, threadID, api, true);
-  } else if (mode == MINUS && userID != senderID) {
+  } else if (mode == MINUS && userID != senderID && isCooledDown(senderID)) {
     doModify(userID, threadID, api, false);
   } else if (mode == CHECK) {
     doCheck(userID, threadID, api);
@@ -103,6 +103,10 @@ function doModify(userID, threadID, api, plus) {
           body: obj[userID].firstName + ' has ' + karma[userID] + ' karma'
         }
         api.sendMessage(msg, threadID);
+        var userRef = db.ref(senderID);
+        var cooldownRef = userRef.child('/cooldown');
+        var d = Date.now();
+        cooldownRef.update(d);
       });
     });
   });
@@ -131,6 +135,20 @@ function doCheck(userID, threadID, api) {
         }
         api.sendMessage(msg, threadID);
       });
+    });
+  });
+}
+
+function isCooledDown(senderID) {
+  firebase(function(db) {
+    var userRef = db.ref(senderID);
+    var cooldownRef = userRef.child('/cooldown');
+    cooldownRef.once('value', function(snap) {
+      if (snap.val()) {
+        var d = new Date(snap.val());
+        return Date.now() - d.getTime() > 60000;
+      }
+      return true;
     });
   });
 }
