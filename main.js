@@ -28,8 +28,6 @@ function loginCallback(err, api) {
       commands.forEach(function(cmd, index) {
         if(trigger == commandDescriptions[index]['trigger']) {
           cmd.trigger(commandString.slice(trigger.length+1), api, message);
-        } else {
-          api.deleteMessage(message.messageID);
         }
       });
     } else {
