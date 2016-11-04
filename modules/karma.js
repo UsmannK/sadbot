@@ -63,16 +63,18 @@ function getIDFromName(user, users, threadID, api, callback) {
 }
 
 function doKarma(userID, threadID, senderID, api, mode) {
-  if (mode == PLUS && userID != senderID && isCooledDown(senderID)) {
-    doModify(userID, threadID, api, true);
-  } else if (mode == MINUS && userID != senderID && isCooledDown(senderID)) {
-    doModify(userID, threadID, api, false);
-  } else if (mode == CHECK) {
-    doCheck(userID, threadID, api);
-  }
+  isCooledDown(threadID, senderID, function(cooled) {
+    if (mode == PLUS && userID != senderID && cooled) {
+      doModify(userID, threadID, senderID, api, true);
+    } else if (mode == MINUS && userID != senderID && cooled) {
+      doModify(userID, threadID, senderID, api, false);
+    } else if (mode == CHECK) {
+      doCheck(userID, threadID, api);
+    }
+  });
 }
 
-function doModify(userID, threadID, api, plus) {
+function doModify(userID, threadID, senderID, api, plus) {
   // get real names
   api.getUserInfo(userID, function(err, obj) {
     if (err) return console.error(err);
@@ -103,10 +105,11 @@ function doModify(userID, threadID, api, plus) {
           body: obj[userID].firstName + ' has ' + karma[userID] + ' karma'
         }
         api.sendMessage(msg, threadID);
-        var userRef = db.ref(senderID);
-        var cooldownRef = userRef.child('/cooldown');
+        var cooldownRef = threadRef.child('/cooldown');
         var d = Date.now();
-        cooldownRef.update(d);
+        var opt = {};
+        opt[senderID] = d;
+        cooldownRef.update(opt);
       });
     });
   });
@@ -139,16 +142,17 @@ function doCheck(userID, threadID, api) {
   });
 }
 
-function isCooledDown(senderID) {
+function isCooledDown(threadID, senderID, callback) {
   firebase(function(db) {
-    var userRef = db.ref(senderID);
-    var cooldownRef = userRef.child('/cooldown');
+    var threadRef = db.ref(threadID);
+    var cooldownRef = threadRef.child('/cooldown');
     cooldownRef.once('value', function(snap) {
       if (snap.val()) {
-        var d = new Date(snap.val());
-        return Date.now() - d.getTime() > 60000;
+        var d = new Date(snap.val()[senderID]);
+        callback(Date.now() - d.getTime() > 30000);
+        return;
       }
-      return true;
+      callback(true);
     });
   });
 }
