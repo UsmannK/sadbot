@@ -154,7 +154,7 @@ function isCooledDown(threadID, senderID, callback) {
     var cooldownRef = threadRef.child('/cooldown');
     cooldownRef.once('value', function(snap) {
       // check if theres a timestamp
-      if (snap.val()) {
+      if (snap.val() && snap.val()[senderID]) {
         // if so, make a new Date based on it
         var d = new Date(snap.val()[senderID]);
         // callback with whether 30s (30k ms) has passed
