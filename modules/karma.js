@@ -105,10 +105,14 @@ function doModify(userID, threadID, senderID, api, plus) {
           body: obj[userID].firstName + ' has ' + karma[userID] + ' karma'
         }
         api.sendMessage(msg, threadID);
+        // get cooldown settings
         var cooldownRef = threadRef.child('/cooldown');
+        // get current timestamp
         var d = Date.now();
+        // options object
         var opt = {};
         opt[senderID] = d;
+        // update timestampt
         cooldownRef.update(opt);
       });
     });
@@ -144,14 +148,20 @@ function doCheck(userID, threadID, api) {
 
 function isCooledDown(threadID, senderID, callback) {
   firebase(function(db) {
+    // thread settings
     var threadRef = db.ref(threadID);
+    // get cooldown settings
     var cooldownRef = threadRef.child('/cooldown');
     cooldownRef.once('value', function(snap) {
+      // check if theres a timestamp
       if (snap.val()) {
+        // if so, make a new Date based on it
         var d = new Date(snap.val()[senderID]);
+        // callback with whether 30s (30k ms) has passed
         callback(Date.now() - d.getTime() > 30000);
         return;
       }
+      // callback with true because no timestamp
       callback(true);
     });
   });
