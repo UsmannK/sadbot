@@ -27,10 +27,9 @@ function getInfo(msg, api) {
 	} else {
 		api.sendTypingIndicator(threadID, function() {
 			getPokemonName(msg[0], function(msg, close) {
-				api.sendMessage(msg, threadID);
-				if (close != null) {
-					fs.unlink(close);
-				}
+				api.sendMessage(msg, threadID, function() {
+					if (close) fs.unlink(close);
+				});
 			})
 		})
 	}
