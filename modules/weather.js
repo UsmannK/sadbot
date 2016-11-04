@@ -36,10 +36,7 @@ function trigger(city, api, message) {
     if (city === "") {
         sendCity = "West Lafayette";
     }
-    var sendCity = args[0];
-    if (sendCity == null) {
-        sendCity = city;
-    }
+    var sendCity = args[0] ? args[0] : city;
     geocoder.geocode(sendCity.trim(), function(err, res) {
         if (res === undefined || res.length == 0) { return console.error("could not geocode"); }
         forecast.get([res[0]['latitude'], res[0]['longitude']], function(err, weather) {
