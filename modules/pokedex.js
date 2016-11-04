@@ -21,16 +21,15 @@ function getInfo(msg, api) {
 		api.sendTypingIndicator(threadID, function() {
 			getPokemonMoveByName(msg[1], function(msg){
 				api.sendMessage(msg, threadID);
-				if (close != null) {
-					fs.unlink(close);
-				}
 			})
 		})
 			
 	} else {
 		api.sendTypingIndicator(threadID, function() {
-			getPokemonName(msg[0], function(msg) {
-				api.sendMessage(msg, threadID);
+			getPokemonName(msg[0], function(msg, close) {
+				api.sendMessage(msg, threadID, function() {
+					if (close) fs.unlink(close);
+				});
 			})
 		})
 	}
