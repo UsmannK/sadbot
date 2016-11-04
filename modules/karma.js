@@ -63,16 +63,18 @@ function getIDFromName(user, users, threadID, api, callback) {
 }
 
 function doKarma(userID, threadID, senderID, api, mode) {
-  if (mode == PLUS && userID != senderID) {
-    doModify(userID, threadID, api, true);
-  } else if (mode == MINUS && userID != senderID) {
-    doModify(userID, threadID, api, false);
-  } else if (mode == CHECK) {
-    doCheck(userID, threadID, api);
-  }
+  isCooledDown(threadID, senderID, function(cooled) {
+    if (mode == PLUS && userID != senderID && cooled) {
+      doModify(userID, threadID, senderID, api, true);
+    } else if (mode == MINUS && userID != senderID && cooled) {
+      doModify(userID, threadID, senderID, api, false);
+    } else if (mode == CHECK) {
+      doCheck(userID, threadID, api);
+    }
+  });
 }
 
-function doModify(userID, threadID, api, plus) {
+function doModify(userID, threadID, senderID, api, plus) {
   // get real names
   api.getUserInfo(userID, function(err, obj) {
     if (err) return console.error(err);
@@ -103,6 +105,15 @@ function doModify(userID, threadID, api, plus) {
           body: obj[userID].firstName + ' has ' + karma[userID] + ' karma'
         }
         api.sendMessage(msg, threadID);
+        // get cooldown settings
+        var cooldownRef = threadRef.child('/cooldown');
+        // get current timestamp
+        var d = Date.now();
+        // options object
+        var opt = {};
+        opt[senderID] = d;
+        // update timestampt
+        cooldownRef.update(opt);
       });
     });
   });
@@ -131,6 +142,27 @@ function doCheck(userID, threadID, api) {
         }
         api.sendMessage(msg, threadID);
       });
+    });
+  });
+}
+
+function isCooledDown(threadID, senderID, callback) {
+  firebase(function(db) {
+    // thread settings
+    var threadRef = db.ref(threadID);
+    // get cooldown settings
+    var cooldownRef = threadRef.child('/cooldown');
+    cooldownRef.once('value', function(snap) {
+      // check if theres a timestamp
+      if (snap.val()) {
+        // if so, make a new Date based on it
+        var d = new Date(snap.val()[senderID]);
+        // callback with whether 30s (30k ms) has passed
+        callback(Date.now() - d.getTime() > 30000);
+        return;
+      }
+      // callback with true because no timestamp
+      callback(true);
     });
   });
 }
