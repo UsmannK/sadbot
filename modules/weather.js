@@ -31,11 +31,9 @@ function getEmoji(weather) {
 }
 
 function trigger(city, api, message) {
+    city = city ? city : 'West Lafayette';
     var args = city.split(",");
     var threadID = message.threadID;
-    if (city === "") {
-        sendCity = "West Lafayette";
-    }
     var sendCity = args[0] ? args[0] : city;
     geocoder.geocode(sendCity.trim(), function(err, res) {
         if (res === undefined || res.length == 0) { return console.error("could not geocode"); }
