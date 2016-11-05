@@ -30,8 +30,6 @@ function loginCallback(err, api) {
           cmd.trigger(commandString.slice(trigger.length+1), api, message);
         }
       });
-    } else {
-      api.deleteThread(message.threadID);
     }
   });
 }
