@@ -4,6 +4,7 @@
   "description": "Interactive sad facebook chat bot",
   "main": "echo.js",
   "dependencies": {
+    "aesthetics": "^2.0.8",
     "cannabis-reports": "^1.0.2",
     "color": "^0.11.3",
     "config": "^1.2.10",

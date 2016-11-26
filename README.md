@@ -16,6 +16,7 @@
 
 ## Navigation
 * [Add User](#add-user)
+* [Aesthetics](#aesthetics)
 * [Color](#color)
 * [Decide](#decide)
 * [Echo](#echo)
@@ -45,6 +46,11 @@
 Adds user to thread, given name
 
 `/add <name>`
+
+### Aesthetics
+Sends text with better ａｅｓｔｈｅｔｉｃ
+
+`/aesthetic <text>`
 
 ### Color
 Changes color of thread given a hex value or built-in color. To see the list of built-in colors, you can run `/color list`

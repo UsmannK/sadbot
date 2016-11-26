@@ -123,7 +123,7 @@
     "trigger": "vote",
     "path": "modules/vote.js",
     "usage": "vote <option #>",
-    "description": "Vote for a poll option"  	
+    "description": "Vote for a poll option"
   },
   {
     "name": "snippets",
@@ -208,6 +208,13 @@
     "path": "modules/stocks.js",
     "usage": "stocks <name>",
     "description": "see information on stock price"
+  },
+  {
+    "name": "aesthetic",
+    "trigger": "aesthetic",
+    "path": "modules/aesthetic.js",
+    "usage": "aesthetic <string>",
+    "description": "give your text some much needed ａｅｓｔｈｅｔｉｃ"
   }
 ]
 
