@@ -36,7 +36,8 @@ router.get('/', function (req, res, next) {
     reqToken = oauth_token;
     reqTokenSecret = oauth_token_secret;
     var authUrl = authorizeUrl + '?oauth_token=' + oauth_token;
-    var html = '<a href='+authUrl+'>'+authUrl+'</a>';
+    var html = '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">'
+    + '<div class="container"><hr/><div class="panel panel-default"><div class="panel-body"><a href='+authUrl+'>Begin Tumblr Authorization Process &raquo;</a></div></div><hr/></div>';
     return res.status(200).send(html);
   });
 });
@@ -67,9 +68,10 @@ router.get('/callback', function (req, res, next) {
         console.error('\tFailed with error', err);
         return next('Error testing OAuthToken');
       }
-
-      console.log('\tVerification successful!');
-      return res.send(util.format('<strong>Authorization successful!</strong><br>token: %s<br>secret: %s', token, secret));
+    var html = '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">'
+    + '<div class="container"><hr/><div class="panel panel-success"><div class="panel-heading">'
+    + '<h3 class="panel-title">Verification Successful</h3></div><div class="panel-body">Head back to sadbot, and run <pre>/tumblr list</pre>. To set the blog where things will get posted, run <pre>/tumblr set &lt;blogname&gt;</pre></div></div><hr/></div>';
+    return res.status(200).send(html);
     });
   }
 });
