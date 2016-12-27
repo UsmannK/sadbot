@@ -12,11 +12,11 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', require('./modules/tumblr_oauth'));
-app.listen(3000, function (err) {
+app.listen(config.get('tumblr.callback_base').split(":")[2], function (err) {
   if (err) {
     throw err;
   }
-  console.log('Listening on http://localhost:3000');
+  console.log('Listening on http://localhost:' + config.get('tumblr.callback_base').split(":")[2]);
 });
 
 // load module definitions
