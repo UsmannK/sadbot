@@ -5,6 +5,26 @@ require('./cronjobs.js');
 var config = require('config');
 var login = require('facebook-chat-api');
 
+// load webserver
+const express = require('express');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(session({
+  secret: 'CHANGE_THIS_SECRET (if you want to)',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use('/', require('./modules/tumblr_oauth'));
+app.listen(1203, function (err) {
+  if (err) {
+    throw err;
+  }
+  console.log('Listening on http://localhost:1203');
+});
+
 // load module definitions
 var commandDescriptions = require('./modules.json');
 

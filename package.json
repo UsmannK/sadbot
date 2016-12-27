@@ -26,7 +26,11 @@
     "request": "^2.74.0",
     "superagent": "^2.1.0",
     "unfluff": "^1.1.0",
-    "yfinance": "0.0.6"
+    "yfinance": "0.0.6",
+    "body-parser": "~1.13.2",
+    "express": "~4.13.1",
+    "express-session": "^1.12.1",
+    "oauth": "^0.9.14"
   },
   "devDependencies": {},
   "scripts": {

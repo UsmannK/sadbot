@@ -215,6 +215,13 @@
     "path": "modules/aesthetic.js",
     "usage": "aesthetic <string>",
     "description": "give your text some much needed ａｅｓｔｈｅｔｉｃ"
+  },
+  {
+    "name": "tumblr",
+    "trigger": "tumblr",
+    "path": "modules/tumblr.js",
+    "usage": "tumblr <string>",
+    "description": "tumblrtumblr"  
   }
 ]
 
