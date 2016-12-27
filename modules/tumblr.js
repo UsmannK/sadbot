@@ -8,7 +8,7 @@ function trigger(message, api, messageObj) {
   var args = message.split(" ");
   threadID = messageObj.threadID;
   if (args[0] === 'auth') {
-    api.sendMessage('http://127.0.0.1:3000?user=' + messageObj.senderID, threadID);
+    api.sendMessage(config.get('tumblr.callback_base') + '?user=' + messageObj.senderID, threadID);
   } else {
     var client;
     firebase(function(db) {

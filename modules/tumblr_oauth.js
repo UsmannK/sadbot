@@ -21,7 +21,7 @@ var oa = new OAuth(
   appConsumerKey,
   appConsumerSecret,
   '1.0A',
-  'http://localhost:3000/callback',
+  config.get('tumblr.callback_base') + '/callback',
   'HMAC-SHA1'
 );
 
