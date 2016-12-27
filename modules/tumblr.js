@@ -1,46 +1,45 @@
-var OAuth = require('oauth').OAuth;
+var tumblr = require('tumblr.js');
+var firebase = require('../firebase.js');
 var config = require('config');
-
 var appConsumerKey = config.get('tumblr.consumerKey');
 var appConsumerSecret = config.get('tumblr.consumerSecret');
 
-// Used for testing an API call with aquired token and secret
-var protectedResourceUrl = 'https://api.tumblr.com/v2/blog/developers.tumblr.com/info';
-
-// Tumblr endpoints
-var authorizeUrl = 'https://www.tumblr.com/oauth/authorize';
-var requestTokenUrl = 'https://www.tumblr.com/oauth/request_token';
-var accessTokenUrl = 'https://www.tumblr.com/oauth/access_token';
-
-// OAuth(requestTokenUrl, accessTokenUrl, consumerKey, consumerSecret, OAuthVersion, callbackUrl, digest)
-var oa = new OAuth(
-  requestTokenUrl,
-  accessTokenUrl,
-  appConsumerKey,
-  appConsumerSecret,
-  '1.0A',
-  'http://73.102.44.214:1203/callback',
-  'HMAC-SHA1'
-);
-var token;
-var secret;
-
 function trigger(message, api, messageObj) {
-    threadID = messageObj.threadID;
-    oa.getOAuthRequestToken(function (err, token, secret) {
-      if (err) {
-        console.error('\tFailed with error', err);
-        return next(err);
-      }
-      console.log('\ttoken %s | secret %s', token, secret);
-
-      // Save generated tokens to session
-      this.token = token;
-      this.secret = secret;
-
-      var authUrl = authorizeUrl + '?oauth_token=' + token;
-      api.sendMessage(authUrl, threadID);
+  var args = message.split(" ");
+  threadID = messageObj.threadID;
+  if (args[0] === 'auth') {
+    api.sendMessage('http://127.0.0.1:3000?user=' + messageObj.senderID, threadID);
+  } else {
+    var client;
+    firebase(function(db) {
+      var firebaseDB = db.ref('oauth/tumblr');
+      firebaseDB.once("value").then(function(snapshot) {
+        if (snapshot.hasChild(messageObj.senderID)) {
+          client = tumblr.createClient({
+            consumer_key: appConsumerKey,
+            consumer_secret: appConsumerSecret,
+            token: snapshot.child(messageObj.senderID + '/token').val(),
+            token_secret: snapshot.child(messageObj.senderID + '/secret').val()
+          });
+          if(args[0] === 'list') {
+            var list = '';
+            client.userInfo(function(err, data) {
+              data.user.blogs.forEach(function(blog) {
+                list += blog.name + '\n';
+              });
+              api.sendMessage(list, threadID);
+            });
+          } else if (args[0] === 'set' && args[1] != null) {
+            firebaseDB.child(messageObj.senderID).child("blog").set(args[1]);
+          } else if (args[0] === 'post' && args[1] === 'text' && args[2] !== null) {
+            client.createTextPost(snapshot.child(messageObj.senderID).child("blog").val(), {body: args[2]}, function() {
+              api.sendMessage('Text post created', threadID);
+            });
+          }
+        };
+      });
     });
+  }
 }
 
 module.exports = {

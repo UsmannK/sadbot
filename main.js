@@ -8,21 +8,15 @@ var login = require('facebook-chat-api');
 // load webserver
 var express = require('express');
 var bodyParser = require('body-parser');
-var session = require('express-session');
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(session({
-  secret: 'CHANGE_THIS_SECRET (if you want to)',
-  resave: false,
-  saveUninitialized: true
-}));
 app.use('/', require('./modules/tumblr_oauth'));
-app.listen(1203, function (err) {
+app.listen(3000, function (err) {
   if (err) {
     throw err;
   }
-  console.log('Listening on http://localhost:1203');
+  console.log('Listening on http://localhost:3000');
 });
 
 // load module definitions
