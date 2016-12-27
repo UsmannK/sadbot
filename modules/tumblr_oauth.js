@@ -1,22 +1,23 @@
-const express = require('express');
-const router = new express.Router();
-const util = require('util');
-const OAuth = require('oauth').OAuth;
+"use strict"; 
+var express = require('express');
+var router = new express.Router();
+var util = require('util');
+var OAuth = require('oauth').OAuth;
 var config = require('config');
 
-const appConsumerKey = config.get('tumblr.consumerKey');
-const appConsumerSecret = config.get('tumblr.consumerSecret');
+var appConsumerKey = config.get('tumblr.consumerKey');
+var appConsumerSecret = config.get('tumblr.consumerSecret');
 
 // Used for testing an API call with aquired token and secret
-const protectedResourceUrl = 'https://api.tumblr.com/v2/blog/developers.tumblr.com/info';
+var protectedResourceUrl = 'https://api.tumblr.com/v2/blog/developers.tumblr.com/info';
 
 // Tumblr endpoints
-const authorizeUrl = 'https://www.tumblr.com/oauth/authorize';
-const requestTokenUrl = 'https://www.tumblr.com/oauth/request_token';
-const accessTokenUrl = 'https://www.tumblr.com/oauth/access_token';
+var authorizeUrl = 'https://www.tumblr.com/oauth/authorize';
+var requestTokenUrl = 'https://www.tumblr.com/oauth/request_token';
+var accessTokenUrl = 'https://www.tumblr.com/oauth/access_token';
 
 // OAuth(requestTokenUrl, accessTokenUrl, consumerKey, consumerSecret, OAuthVersion, callbackUrl, digest)
-const oa = new OAuth(
+var oa = new OAuth(
   requestTokenUrl,
   accessTokenUrl,
   appConsumerKey,
@@ -39,8 +40,8 @@ router.get('/', function (req, res, next) {
     req.session.requestToken = token;
     req.session.requestTokenSecret = secret;
 
-    let authUrl = authorizeUrl + '?oauth_token=' + token;
-    let html = util.format('<a href="%s">%s</a>', authUrl, authUrl);
+    var authUrl = authorizeUrl + '?oauth_token=' + token;
+    var html = util.format('<a href="%s">%s</a>', authUrl, authUrl);
 
     console.log('Direct client to authUrl');
     console.log('\t' + authUrl);

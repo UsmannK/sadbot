@@ -6,10 +6,10 @@ var config = require('config');
 var login = require('facebook-chat-api');
 
 // load webserver
-const express = require('express');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const app = express();
+var express = require('express');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
