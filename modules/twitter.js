@@ -11,14 +11,21 @@ var T = new Twit({
 
 
 function trigger(tweetURL, api, message) {
-	//https%3A%2F%2Ftwitter.com%AnkitPancakes%2Fstatus%788914839007748097
+	//https://twitter.com/AnkitPancakes/status/788914839007748097
+
 	console.log(tweetURL);
-	T.get('statuses/show/:id', {'id': '788914839007748097'}, function (err, data, response) {
+	var tweetID = splitAtStatus(tweetURL);
+	console.log(tweetID);
+	T.get('statuses/show/:id', {'id': tweetID}, function (err, data, response) {
 		console.log(data.user.screen_name);
 		console.log(data.text);
 	});
 }
-//788914839007748097
+
+function splitAtStatus(url) {
+	var id = url.split("/status/");
+	return id[1];
+}
 
 module.exports = {
   trigger: trigger
