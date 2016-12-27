@@ -11,14 +11,13 @@ var T = new Twit({
 
 
 function trigger(tweetURL, api, message) {
-	//https://twitter.com/AnkitPancakes/status/788914839007748097
-
-	console.log(tweetURL);
+	var threadID = message.threadID;
 	var tweetID = splitAtStatus(tweetURL);
-	console.log(tweetID);
+	var response = "";
+	
 	T.get('statuses/show/:id', {'id': tweetID}, function (err, data, response) {
-		console.log(data.user.screen_name);
-		console.log(data.text);
+		response = '@' + data.user.screen_name + ' tweeted: ' + data.text;
+		api.sendMessage(response, threadID);
 	});
 }
 
