@@ -31,10 +31,16 @@ function trigger(message, api, messageObj) {
             });
           } else if (args[0] === 'set' && args[1] != null) {
             firebaseDB.child(messageObj.senderID).child("blog").set(args[1]);
-          } else if (args[0] === 'post' && args[1] === 'text' && args[2] !== null) {
-            client.createTextPost(snapshot.child(messageObj.senderID).child("blog").val(), {body: args[2]}, function() {
-              api.sendMessage('Text post created', threadID);
-            });
+          } else if (args[0] === 'post') {
+            if(args[1] === 'text' && args[2] !== null) {
+              client.createTextPost(snapshot.child(messageObj.senderID).child("blog").val(), {body: args[2]}, function() {
+                api.sendMessage('Text post created', threadID);
+              });
+            } else if(args[1] === 'image' && args[2] !== null) {
+              client.createPhotoPost(snapshot.child(messageObj.senderID).child("blog").val(), {source: args[2]}, function() {
+                api.sendMessage('Image post created', threadID);
+              });              
+            }
           }
         };
       });
