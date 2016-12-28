@@ -5,7 +5,7 @@
   "main": "echo.js",
   "dependencies": {
     "aesthetics": "^2.0.8",
-    "cannabis-reports": "^1.0.2",
+    "cannabis-reports": "1.0.0",
     "color": "^0.11.3",
     "config": "^1.2.10",
     "cowsay": "^1.1.8",
