@@ -14,28 +14,35 @@ function trigger(tweetURL, api, message) {
 	var threadID = message.threadID;
 	var tweetID = splitAtStatus(tweetURL);
 	var response = "";
+
+	//could not parse a number 
+	if (tweetID === undefined || tweetID === null) {
+    	return console.error("Not a proper tweet!");
+	}
 	
 	T.get('statuses/show/:id', {'id': tweetID, 'include_entities': true}, function (err, data, response) {
-		//console.log(data.entities);
-		var picURL = "";
-		var x = data.entities.hasOwnProperty('media');
-
-		//handle with image
-		if (x === true) {
-			console.log("attaching image");
-			picURL = data.entities.media[0].media_url;
-			response = {
-				body: '@' + data.user.screen_name + ' tweeted: ' + data.text,
-				url: picURL
-			}
+		if (err) {
+			return console.error("Impromper tweet URL!");
 		}
 		else {
-			console.log("no image");
-			response = '@' + data.user.screen_name + ' tweeted: ' + data.text;
-		}
+			var picURL = "";
+			var x = data.entities.hasOwnProperty('media');
 
-		//send message 	
-		api.sendMessage(response, threadID);
+			//handle with image
+			if (x === true) {
+				picURL = data.entities.media[0].media_url;
+				response = {
+					body: '@' + data.user.screen_name + ' tweeted: ' + data.text,
+					url: picURL
+				}
+			}
+			else {
+				response = '@' + data.user.screen_name + ' tweeted: ' + data.text;
+			}
+
+			//send message 	
+			api.sendMessage(response, threadID);
+		}
 	});
 }
 
