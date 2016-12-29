@@ -3,7 +3,9 @@
     "name": "echo",
     "trigger": "echo",
     "path": "modules/echo.js",
-    "usage": "echo <message>",
+    "usage": {
+      "<message>": "repeats <message> back to thread"
+    },
     "description": "repeats <message> back to thread"
   },
   {
@@ -11,69 +13,87 @@
     "trigger": "weather",
     "path": "modules/weather.js",
     "usage": "weather <city>",
-    "description": "sends the current weather in <city> to thread"
+    "usage": {
+      "<city>": "sends the current weather for <city>",
+      "<city> daily": "sends the weekly weather for <city>" 
+    },
+    "description": "sends the current weather for <city>"
   },
   {
     "name": "space",
     "trigger": "space",
     "path": "modules/space.js",
-    "usage": "space",
+    "usage": {},
     "description": "sends a random space image to a thread"
   },
   {
     "name": "kick user",
     "trigger": "kick",
     "path": "modules/kickUser.js",
-    "usage": "kick <name of user> or kick <thread nickname>",
+    "usage": {
+      "<name OR nickname of user>": "kicks specified user from thread"
+    },
     "description": "kicks specified user from current thread"
   },
   {
     "name": "add user",
     "trigger": "add",
     "path": "modules/addUser.js",
-    "usage": "add <name of user>",
+    "usage": {
+      "<name OR nickname of user>": "adds specified user from thread"
+    },
     "description": "adds specified user to current thread"
   },
   {
     "name": "color",
     "trigger": "color",
     "path": "modules/color.js",
-    "usage": "color <hex>",
+    "usage": {
+      "random": "changes thread color to a random color",
+      "++": "makes the current thread color lighter",
+      "--": "makes the current thread color darker",
+      "<list>": "lists built-in colors",
+      "<hex>": "changes color of current thread to <hex>"
+    },
     "description": "changes color of current thread to <hex> or built-in colors"
   },
   {
     "name": "giphy",
     "trigger": "giphy",
     "path": "modules/giphy.js",
-    "usage": "giphy <phrase>",
+    "usage": {},
     "description": "searches <phrase> on giphy and returns a relevant git"
   },
   {
     "name": "yesno",
     "trigger": "decide",
     "path": "modules/yesno.js",
-    "usage": "decide",
+    "usage": {},
     "description": "decides on an answer to any yes/no question and gives a (dis)approving gif"
   },
   {
     "name": "nickname",
     "trigger": "nick",
     "path": "modules/nickname.js",
-    "usage": "nick <Name/Nickname>, <nickname>",
+    "usage" : {
+      "": "Gets your nickname",
+      "<name>": "Gets nickname of specified user",
+      "<name>, <nickname>": "Sets user <name> nickname to <nickname>"
+    },
     "description": "Sets the nickname of the given user"
   },
   {
     "name": "title",
     "trigger": "title",
     "path": "modules/title.js",
-    "usage": "title <title>",
-    "description": "Sets the title of current thread"
+    "usage": {},
+    "description": "Sets the <title> of current thread"
   },
   {
     "name": "figlet",
     "trigger": "figlet",
     "path": "modules/figlet.js",
-    "usage": "figlet <message>",
+    "usage": {},
     "description": "Replies with a figlet of <message>"
   },
   {
@@ -220,8 +240,14 @@
     "name": "tumblr",
     "trigger": "tumblr",
     "path": "modules/tumblr.js",
-    "usage": "tumblr <string>",
-    "description": "tumblrtumblr"  
+    "usage": {
+      "auth": "connect your tumblr account to sadbot",
+      "list": "list all of your tumblr blogs",
+      "set <blog name>": "set your main blog, where content will be posted",
+      "post text <text>": "create a text post",
+      "post image <url>": "create a image post from a url"
+    },
+    "description": "allows users to post text and image posts to their tumblr blogs"  
   }
 ]
 
