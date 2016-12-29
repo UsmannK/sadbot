@@ -222,6 +222,13 @@
     "path": "modules/twitter.js",
     "usage": "twitter <tweet url>",
     "description": "echos out contents of a tweet to the chat"
+  },
+  {
+    "name": "tumblr",
+    "trigger": "tumblr",
+    "path": "modules/tumblr.js",
+    "usage": "tumblr <string>",
+    "description": "tumblrtumblr"  
   }
 ]
 

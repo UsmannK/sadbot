@@ -5,6 +5,20 @@ require('./cronjobs.js');
 var config = require('config');
 var login = require('facebook-chat-api');
 
+// load webserver
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use('/', require('./modules/tumblr_oauth'));
+app.listen(config.get('tumblr.callback_base').split(":")[2], function (err) {
+  if (err) {
+    throw err;
+  }
+  console.log('Listening on http://localhost:' + config.get('tumblr.callback_base').split(":")[2]);
+});
+
 // load module definitions
 var commandDescriptions = require('./modules.json');
 
