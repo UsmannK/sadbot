@@ -5,6 +5,7 @@
   "main": "echo.js",
   "dependencies": {
     "aesthetics": "^2.0.8",
+    "body-parser": "~1.13.2",
     "cannabis-reports": "1.0.0",
     "color": "^0.11.3",
     "config": "^1.2.10",
@@ -12,6 +13,8 @@
     "cron": "^1.1.0",
     "emoji-regex": "^6.0.0",
     "emojilib": "^2.0.2",
+    "express": "~4.13.1",
+    "express-session": "^1.12.1",
     "facebook-chat-api": "schmavery/facebook-chat-api",
     "figlet": "^1.1.2",
     "firebase": "^3.2.0",
@@ -22,9 +25,11 @@
     "node-summary": "^1.1.0",
     "node-wolfram": "0.0.1",
     "nodemon": "^1.9.2",
+    "oauth": "^0.9.14",
     "pokedex-promise-v2": "^3.0.1",
     "request": "^2.74.0",
     "superagent": "^2.1.0",
+    "tumblr.js": "^1.1.1",
     "unfluff": "^1.1.0",
     "yfinance": "0.0.6"
   },
