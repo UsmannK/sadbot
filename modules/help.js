@@ -33,7 +33,6 @@ function formDesc(cmd) {
         for(var key in modules[module].usage) {
             usageMessage += key + ' - ';
             usageMessage += modules[module].usage[key] + '\n';
-            console.log(key);
         }
       }
       usageMessage += '```';
