@@ -1,6 +1,10 @@
 var config = require('config');
 var Twit = require('twit');
 
+var request = require('request');
+var superagent = require('superagent');
+var fs = require('fs');
+
 var T = new Twit({
   consumer_key: config.get('twitter.consumerKey'),
   consumer_secret: config.get('twitter.consumerSecret'),
@@ -15,8 +19,26 @@ function trigger(tweetURL, api, message) {
 	var tweetID = splitAtStatus(tweetURL);
 	var response = "";
 	
-	T.get('statuses/show/:id', {'id': tweetID}, function (err, data, response) {
-		response = '@' + data.user.screen_name + ' tweeted: ' + data.text;
+	T.get('statuses/show/:id', {'id': tweetID, 'include_entities': true}, function (err, data, response) {
+		console.log(data.entities);
+		var picURL = "";
+		var x = data.entities.hasOwnProperty('media');
+
+		//handle with image
+		if (x === true) {
+			console.log(data.entities.media[0].media_url);
+			picURL = data.entities.media[0].media_url;
+			response = {
+				body: '@' + data.user.screen_name + ' tweeted: ' + data.text,
+				url: picURL
+			}
+		}
+		else {
+			console.log("no image");
+			response = '@' + data.user.screen_name + ' tweeted: ' + data.text;
+		}
+
+		//send message 	
 		api.sendMessage(response, threadID);
 	});
 }
