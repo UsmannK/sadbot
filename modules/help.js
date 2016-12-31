@@ -17,21 +17,25 @@ function formHelp() {
     usageMessage += modules[module].name;
     usageMessage += ' '.repeat(15-modules[module].name.length);
     usageMessage += '[' + modules[module].trigger + ']';
-    usageMessage += '\n\n';
+    usageMessage += '\n';
   }
   usageMessage += "help <command> lists available subcommands and descriptions" 
   return usageMessage;
 }
 
 function formDesc(cmd) {
-console.log(cmd);
   for(var module in modules) {
     if(cmd == modules[module].name) {
-      var usageMessage = modules[module].name;
-      usageMessage += ' '.repeat(15-modules[module].name.length);
-      usageMessage += '[' + modules[module].trigger + ']';
-      usageMessage += '\n';
-      usageMessage += modules[module].description;
+      var usageMessage = '```\n' + modules[module].name + ': ';
+      usageMessage += modules[module].description + '\n';
+      if(Object.keys(modules[module].usage).length > 0) {
+        usageMessage += 'Commands begin with /' + modules[module].trigger + ':\n';
+        for(var key in modules[module].usage) {
+            usageMessage += key + ' - ';
+            usageMessage += modules[module].usage[key] + '\n';
+        }
+      }
+      usageMessage += '```';
     }
   }
   return usageMessage;

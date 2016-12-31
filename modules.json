@@ -3,78 +3,92 @@
     "name": "echo",
     "trigger": "echo",
     "path": "modules/echo.js",
-    "usage": "echo <message>",
-    "description": "repeats <message> back to thread"
+    "usage": {},
+    "description": "/echo <message> repeats <message> back to thread"
   },
   {
     "name": "weather",
     "trigger": "weather",
     "path": "modules/weather.js",
     "usage": "weather <city>",
-    "description": "sends the current weather in <city> to thread"
+    "usage": {
+      "<city>": "sends the current weather for <city>",
+      "<city> daily": "sends the weekly weather for <city>" 
+    },
+    "description": "view weather information"
   },
   {
     "name": "space",
     "trigger": "space",
     "path": "modules/space.js",
-    "usage": "space",
-    "description": "sends a random space image to a thread"
+    "usage": {},
+    "description": "/space sends a random space image to a thread"
   },
   {
     "name": "kick user",
     "trigger": "kick",
     "path": "modules/kickUser.js",
-    "usage": "kick <name of user> or kick <thread nickname>",
-    "description": "kicks specified user from current thread"
+    "usage": {},
+    "description": "/kick <name OR nickname of user> kicks specified user from current thread"
   },
   {
     "name": "add user",
     "trigger": "add",
     "path": "modules/addUser.js",
-    "usage": "add <name of user>",
-    "description": "adds specified user to current thread"
+    "usage": {},
+    "description": "/add <name OR nickname of user> adds specified user to current thread"
   },
   {
     "name": "color",
     "trigger": "color",
     "path": "modules/color.js",
-    "usage": "color <hex>",
-    "description": "changes color of current thread to <hex> or built-in colors"
+    "usage": {
+      "random": "changes thread color to a random color",
+      "++": "makes the current thread color lighter",
+      "--": "makes the current thread color darker",
+      "<list>": "lists built-in colors",
+      "<hex>": "changes color of current thread to <hex>"
+    },
+    "description": "change the color of a thread"
   },
   {
     "name": "giphy",
     "trigger": "giphy",
     "path": "modules/giphy.js",
-    "usage": "giphy <phrase>",
-    "description": "searches <phrase> on giphy and returns a relevant git"
+    "usage": {},
+    "description": "/giphy <phrase> searches <phrase> on giphy and returns a relevant gif"
   },
   {
     "name": "yesno",
     "trigger": "decide",
     "path": "modules/yesno.js",
-    "usage": "decide",
-    "description": "decides on an answer to any yes/no question and gives a (dis)approving gif"
+    "usage": {},
+    "description": "/decide decides on an answer to any yes/no question and gives a (dis)approving gif"
   },
   {
     "name": "nickname",
     "trigger": "nick",
     "path": "modules/nickname.js",
-    "usage": "nick <Name/Nickname>, <nickname>",
-    "description": "Sets the nickname of the given user"
+    "usage" : {
+      "[]": "Gets your nickname",
+      "<name>": "Gets nickname of specified user",
+      "<name>, <nickname>": "Sets user <name> nickname to <nickname>"
+    },
+    "description": "Allows for various nickname actions"
   },
   {
     "name": "title",
     "trigger": "title",
     "path": "modules/title.js",
-    "usage": "title <title>",
-    "description": "Sets the title of current thread"
+    "usage": {},
+    "description": "/title <title> sets the <title> of current thread"
   },
   {
     "name": "figlet",
     "trigger": "figlet",
     "path": "modules/figlet.js",
-    "usage": "figlet <message>",
-    "description": "Replies with a figlet of <message>"
+    "usage": {},
+    "description": "/figlet <message> replies with a figlet of <message>"
   },
   {
     "name": "preferences",
@@ -87,134 +101,148 @@
     "name": "emoji",
     "trigger": "emoji",
     "path": "modules/emoji.js",
-    "usage": "emoji <new emoji>",
-    "description": "sets the channel emoji to whatever is specified"
+    "usage": {},
+    "description": "/emoji <emoji name> sets the channel emoji to the name of the emoji specified"
   },
   {
     "name": "cowsay",
     "trigger": "cowsay",
     "path": "modules/cowsay.js",
-    "usage": "cowsay <message>",
-    "description": "Replies with a cowsay of <message>"
+    "usage": {},
+    "description": "/cowsay <message> replies with a cowsay of <message>"
   },
   {
     "name": "poll",
     "trigger": "poll",
     "path": "modules/poll.js",
-    "usage": "poll <message>",
-    "description": "Create a poll <message>"
+    "usage": {
+      "create <question>" : "Creates a poll with title <question> if a poll does not exist already",
+      "add <option>" : "Adds an <option> to an existing poll",
+      "delete <option>" : "Deletes an <option> in an existing poll",
+      "view" : "Prints the poll with vote counts"
+    },
+    "description": "Create a poll, and add options for users to vote on"
   },
   {
     "name": "summary",
     "trigger": "smmry",
     "path": "modules/smmry.js",
-    "usage": "summary <link>",
-    "description": "Summarize a <link>"
+    "usage": {},
+    "description": "/smmry <link> returns a text summarization of a <link>"
   },
   {
     "name": "help",
     "trigger": "help",
     "path": "modules/help.js",
-    "usage": "help",
-    "description": "Show sadbot usage and descriptions"
+    "usage": {},
+    "description": "/help shows sadbot usage and descriptions"
   },
   {
 	  "name": "vote",
     "trigger": "vote",
     "path": "modules/vote.js",
-    "usage": "vote <option #>",
-    "description": "Vote for a poll option"
+    "usage": {},
+    "description": "/vote <option #> votes for a poll option"
   },
   {
     "name": "snippets",
     "trigger": "snip",
     "path": "modules/snippet.js",
-    "usage": "snip <command>",
+    "usage": {},
     "description": "snippets"
   },
   {
     "name": "xkcd",
     "trigger": "xkcd",
     "path": "modules/xkcd.js",
-    "usage": "xkcd <comic-id>",
-    "description": "xkcd"
+    "usage": {
+      "[] OR today" : "get the most recent XKCD comic",
+      "random" : "get a random XKCD comic"
+    },
+    "description": "get a XCKD comic"
   },
   {
     "name": "movie",
     "trigger": "movie",
     "path": "modules/movie.js",
-    "usage": "movie <search>",
-    "description": "Search a movie or TV Show"
+    "usage": {},
+    "description": "/movie <search> returns information about a movie or TV show"
   },
   {
     "name": "lmgtfy",
     "trigger": "lmgtfy",
     "path": "modules/lmgtfy.js",
-    "usage": "lmgtfy <phrase>",
-    "description": "generates a snarky link for ur dumb friends"
+    "usage": {},
+    "description": "/lmgtfy <search> generates a lmgtfy link"
   },
   {
     "name": "wolfram",
     "trigger": "wolfram",
     "path": "modules/wolfram.js",
-    "usage": "wolfram <query>",
-    "description": "Query WolframAlpha"
+    "usage": {},
+    "description": "/wolfram <query> returns <query> results from WolframAlpha"
   },
   {
     "name": "ping",
     "trigger": "ping",
     "path": "modules/ping.js",
-    "usage": "ping <user>",
-    "description": "send a pm to a user to get their attention"
+    "usage": {},
+    "description": "/ping <name> sends a PM to a user to get their attention"
   },
   {
     "name": "plusplus",
     "trigger": "++",
     "path": "modules/karma.js",
-    "usage": "++ <username>",
-    "description": "give a user a nice lil karma boost"
+    "usage": {},
+    "description": "/++ <username> will give a user one karma point"
   },
   {
     "name": "minusminus",
     "trigger": "--",
     "path": "modules/karma.js",
-    "usage": "-- <username>",
-    "description": "be easy, god"
+    "usage": {},
+    "description": "/-- <username> will remove one karma point from a user"
   },
   {
     "name": "karma",
     "trigger": "karma",
     "path": "modules/karma.js",
-    "usage": "karma <username>",
+    "usage": {
+      "[]" : "Returns your karma",
+      "<username>": "Returns a user's karma count"
+    },
     "description": "check a user's karma"
   },
   {
     "name": "pokedex",
     "trigger": "pokedex",
     "path": "modules/pokedex.js",
-    "usage": "pokedex <pokemon-name or pokemon-id> or pokedex move <move-name>",
+    "usage": {
+      "<pokemon-name OR pokemon-id>" : "displays information about specified pokemon",
+      "move <move-name>" : "displays information about a pokemon move"
+    },
     "description": "see information about a pokemon or move"
   },
   {
     "name": "weed",
     "trigger": "weed",
     "path": "modules/weed.js",
-    "usage": "weed <strain-name>",
-    "description": "see information on cannabis strains"
+    "usage": {},
+    "description": "/weed <strain> displays information on cannabis <strain>"
   },
   {
     "name": "stocks",
     "trigger": "stocks",
     "path": "modules/stocks.js",
-    "usage": "stocks <name>",
-    "description": "see information on stock price"
+    "usage": {},
+    "description": "/stocks <stock-symbol> see information on stock price of specified <stock-symbol>"
   },
   {
     "name": "aesthetic",
     "trigger": "aesthetic",
     "path": "modules/aesthetic.js",
-    "usage": "aesthetic <string>",
-    "description": "give your text some much needed ａｅｓｔｈｅｔｉｃ"
+    "usage": {},
+    "description": "/aesthetic <text> gives your <text> some much needed ａｅｓｔｈｅｔｉｃ"
   },
   {
     "name": "twitter",
@@ -227,8 +255,14 @@
     "name": "tumblr",
     "trigger": "tumblr",
     "path": "modules/tumblr.js",
-    "usage": "tumblr <string>",
-    "description": "tumblrtumblr"  
+    "usage": {
+      "auth": "connect your tumblr account to sadbot",
+      "list": "list all of your tumblr blogs",
+      "set <blog name>": "set your main blog, where content will be posted",
+      "post text <text>": "create a text post",
+      "post image <url>": "create a image post from a url"
+    },
+    "description": "allows users to post text and image posts to their tumblr blogs"  
   }
 ]
 
