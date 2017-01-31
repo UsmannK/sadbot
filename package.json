@@ -30,6 +30,7 @@
     "request": "^2.74.0",
     "superagent": "^2.1.0",
     "tumblr.js": "^1.1.1",
+    "twit": "^2.2.5",
     "unfluff": "^1.1.0",
     "yfinance": "0.0.6"
   },
