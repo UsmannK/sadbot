@@ -18,7 +18,7 @@ function formHelp() {
 
 function formHelpCommands() {
 
-  var usageMessage = "```\nDescription   Command\n----------------------";
+  var usageMessage = "```\nDescription   Command\n----------------------\n";
 
   for(var module in modules) {
     usageMessage += modules[module].name;
@@ -31,9 +31,7 @@ function formHelpCommands() {
 }
 
 function formDesc(cmd) {
-  console.log(cmd)
   if(cmd == "commands") {
-    console.log(formHelpCommands());
     return formHelpCommands();
   }
   for(var module in modules) {
