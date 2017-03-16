@@ -12,23 +12,41 @@ function trigger(message, api, messageObj) {
           console.error("Error getting ESPN HTML");
         } else {
           $ = cheerio.load(res.text);
-          if(options.length == 0) {
+          if(options[0] === '') {
             var string = "";
             $('.single-score-card').each(function(i, elm) {
               if($(this).find('.team').find('a').first().length > 0) {
                 var broadcaster = "CBS";
+                var time = "";
+                var live = false;
+                var finished = false;
                 if($(this).find('.broadcaster').children().length == 1) {
                   var broadcaster = $(this).find('.broadcaster').text().trim().replace(/ /g,'').substring(10);
                 }
+                if($(this).find('.game-status').find('.pregame-date').length == 1) {
+                  time = " @ " + $(this).find('.game-status').find('.pregame-date').text().trim() 
+                        + " on " + broadcaster + "\n";
+                } else if($(this).find('.emphasis').length == 1) {
+                  live = true;
+                  time = " - " + $(this).find('.emphasis').text().trim() + " - on " + broadcaster + "\n";
+                } else if($(this).find('.postgame').length == 1) {
+                  finished = true;
+                  time = " - FINAL\n";
+                }
+                if(live) {
+                  string += "🔛 ";
+                } else if(finished) {
+                  string += "🔚 ";
+                }
                 string += $(this).find('.team').find('a').first().text().trim();
                 string += " vs " + $(this).find('.team').find('a').last().text().trim();
-                string += " @ " + $(this).find('.game-status').find('span').text().trim() + " on " + broadcaster + "\n";
+                string += time ;
               }
             });
-          } else if(options.length == 1 && options[0] === "live") {
+          } else if(options[0] === "live") {
             var string = "";
             $('.ingame').each(function(i, elm) {
-              var status = ($(this).find('.emphasis').text().trim());
+              var status = $(this).find('.emphasis').text().trim();
               var score_team_one = $(this).find('tr').find('td').eq(3).text()
               var score_team_two = $(this).find('tr').find('td').eq(7).text()
               string += $(this).find('.team').find('a').first().text().trim() + " ("+score_team_one+")";
