@@ -263,6 +263,15 @@
       "post image <url>": "create a image post from a url"
     },
     "description": "allows users to post text and image posts to their tumblr blogs"  
+  },
+  {
+    "name": "March Madness",
+    "trigger": "mm",
+    "path": "modules/marchmadness.js",
+    "usage": {
+      "auth": "get schedule"
+    },
+    "description": "get schedule of mm games"      
   }
 ]
 
