@@ -35,12 +35,23 @@ function trigger(message, api, messageObj) {
                 }
                 if(live) {
                   string += "🔛 ";
-                } else if(finished) {
-                  string += "🔚 ";
                 }
-                string += $(this).find('.team').find('a').first().text().trim();
-                string += " vs " + $(this).find('.team').find('a').last().text().trim();
-                string += time ;
+                if(finished) {
+                  string += "🔚 ";
+                  var score_team_one = $(this).find('tr').find('td').eq(3).text();
+                  var score_team_two = $(this).find('tr').find('td').eq(7).text();
+                  if(parseInt(score_team_one) > parseInt(score_team_two)) {
+                    string += $(this).find('.team').find('a').first().text().trim().toUpperCase() + " ✅";
+                    string += " vs " + $(this).find('.team').find('a').last().text().trim();
+                  } else {
+                    string += $(this).find('.team').find('a').first().text().trim();
+                    string += " vs " + $(this).find('.team').find('a').last().text().trim().toUpperCase() + " ✅";
+                  }
+                } else {
+                  string += $(this).find('.team').find('a').first().text().trim();
+                  string += " vs " + $(this).find('.team').find('a').last().text().trim();
+                }
+                string += time;
               }
             });
           } else if(options[0] === "live") {
