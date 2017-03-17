@@ -35,9 +35,6 @@ function trigger(message, api, messageObj) {
                   finished = true;
                   time = "\n";
                 }
-                if(live) {
-                  string += "👉 ";
-                }
                 if(finished) {
                   var score_team_one = $(this).find('tr').find('td').eq(3).text();
                   var score_team_two = $(this).find('tr').find('td').eq(7).text();
@@ -49,7 +46,11 @@ function trigger(message, api, messageObj) {
                     string += " vs " + $(this).find('.team').find('a').first().text().trim();
                   }
                 } else {
-                  string += "⏳ ";
+                  if(live) {
+                    string += "👉 ";
+                  } else {
+                    string += "⏳ ";
+                  }
                   string += $(this).find('.team').find('a').first().text().trim();
                   string += " vs " + $(this).find('.team').find('a').last().text().trim();
                 }
