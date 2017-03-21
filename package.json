@@ -7,6 +7,7 @@
     "aesthetics": "^2.0.8",
     "body-parser": "~1.13.2",
     "cannabis-reports": "1.0.0",
+    "cheerio": "^0.22.0",
     "color": "^0.11.3",
     "config": "^1.2.10",
     "cowsay": "^1.1.8",
