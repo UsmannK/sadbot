@@ -33,7 +33,8 @@ function trigger(message, api, messageObj) {
             firebaseDB.child(messageObj.senderID).child("blog").set(args[1]);
           } else if (args[0] === 'post') {
             if(args[1] === 'text' && args[2] !== null) {
-              client.createTextPost(snapshot.child(messageObj.senderID).child("blog").val(), {body: args[2]}, function() {
+              var len = 10;
+              client.createTextPost(snapshot.child(messageObj.senderID).child("blog").val(), {body: message.substr(10)}, function() {
                 api.sendMessage('Text post created', threadID);
               });
             } else if(args[1] === 'image' && args[2] !== null) {
