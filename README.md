@@ -25,6 +25,7 @@
 * [Giphy](#giphy)
 * [Karma](#karma)
 * [Let Me Google That for You](#lmgtfy)
+* [March Madness] (#march-madness)
 * [Movie Search](#movie-search)
 * [Nickname](#nickname)
 * [Notifications](#ping)
@@ -107,6 +108,11 @@ Connects to Giphy to send gifs corresponding to search term. If no search term i
 ### LMGTFY
 `/lmgtfy <phrase>` Generates a snarky LMGTFY link (shortened, of course)
 
+### March Madness
+`/mm` Get all the scheduled March Madness games
+
+`/mm live` Get a list of currently live games with scores and the time remaining
+
 ### Movie Search
 `/movie <search term>` Search for a movie or TV show. Returns cover art, run status, and IMDb rating
 
@@ -179,9 +185,12 @@ Provides strain information and effects for given query.
 `/wolfram <query>` Queries wolfram alpha to solve your question
 
 ### XKCD
+`/xkcd <comic id>` Get the XKCD comic with id `<comic id>`
+
 `/xkcd random` Random XKCD comic
 
 `/xkcd today` Most recent XKCD comic
+
 
 
 ## Credits
