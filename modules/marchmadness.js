@@ -51,8 +51,8 @@ function trigger(message, api, messageObj) {
                   } else {
                     string += "⏳ ";
                   }
-                  string += $(this).find('.team').find('a').first().text().trim();
-                  string += " vs " + $(this).find('.team').find('a').last().text().trim();
+                  string += $(this).find('.team').find('.team').first().text().trim();
+                  string += " vs " + $(this).find('.team').find('.team').last().text().trim();
                 }
                 string += time;
               }
