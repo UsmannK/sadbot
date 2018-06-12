@@ -26,7 +26,7 @@
 * [Karma](#karma)
 * [Let Me Google That for You](#lmgtfy)
 * [March Madness] (#march-madness)
-* [Movie Search](#movie-search)
+* [Movie Search] (#movie-search)
 * [Nickname](#nickname)
 * [Notifications](#ping)
 * [Poll](#poll)
