@@ -8,11 +8,11 @@
 var cowsay = require('cowsay');
 
 function trigger(message, api, messageObj) {
-  threadID = messageObj.threadID;
+  threadID = messageObj.threadId;
   var msg = cowsay.say({
     text : message
   });
-  api.sendMessage('```' + msg + '```', threadID);
+  api.sendMessage(threadID, '```' + msg + '```');
 
 }
 

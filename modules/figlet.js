@@ -8,9 +8,9 @@
 var figlet = require('figlet');
 
 function trigger(message, api, messageObj) {
-  threadID = messageObj.threadID;
+  threadID = messageObj.threadId;
   var figged = '```\n' + makeFig(message) + '```';
-  api.sendMessage(figged, threadID);
+  api.sendMessage(threadID, figged);
 }
 
 function makeFig(message) {

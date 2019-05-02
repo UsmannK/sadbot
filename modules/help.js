@@ -1,8 +1,8 @@
 var modules = require('../modules.json');
 
-function trigger(args, api, message) {
-  var threadID = message.threadId;
-  body = message.message;
+function trigger(message, api, messageObj) {
+  var threadID = messageObj.threadId;
+  body = message;
   var helpMessage;
   if(body.length > 1) {
     helpMessage = formDesc(body);

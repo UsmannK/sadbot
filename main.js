@@ -3,14 +3,7 @@ require('./cronjobs.js');
 
 // load config
 var config = require('config');
-
-// load webserver
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-
+const { login } = require('libfb');
 
 // load module definitions
 var commandDescriptions = require('./modules.json');
@@ -22,22 +15,9 @@ var commands = commandDescriptions .map(function(cmd) {
   return require('./' + cmd['path']);
 });
 
-const { login } = require('libfb');
-
-// (async() => {
-// const api = await login('rob@kedarv.com', 'testingx1');
-
-
-//   console.log('Got a message!')
-//   console.log(message.message)
-//   api.sendMessage(message.threadId, message.message)
-
-
-// // login to the bot account
-// login({email: config.get('botUsername'), password: config.get('botPassword')}, loginCallback);
+var superagent = require('superagent');
 
 // parse messages for handling
-
 (async() => {
   const api = await login('rob@kedarv.com', 'testingx1');
   api.on('message', message => {

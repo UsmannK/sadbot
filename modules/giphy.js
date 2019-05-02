@@ -1,14 +1,11 @@
 var giphy = require('giphy-api')();
 
-function trigger(search, api, message) {
-  threadID = message.threadID;
+function trigger(message, api, messageObj) {
+  threadID = messageObj.threadId;
   giphy.random(search, function(err, res) {
     if (err) return console.error(err);
-    var msg = {
-      body: res.data.caption,
-      url: res.data.url
-    };
-    api.sendMessage(msg, threadID);
+    var msg = res.data.url;
+    api.sendMessage(threadId, msg);
   });
 }
 

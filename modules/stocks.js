@@ -4,26 +4,23 @@
  *  Usage: /stocks <symbol>
  */
 
-var yfinance = require('yfinance');
+var superagent = require('superagent');
 
-function trigger(search, api, messageObj) {
-	var args = messageObj.body.split(" ");
-	var threadID = messageObj.threadID;
+function trigger(message, api, messageObj) {
+	var args = messageObj.message.split(" ");
+	var threadID = messageObj.threadId;
 	if(typeof args[1] == 'undefined') {
 		console.error('bad arguments');
 	}
-	var end = api.sendTypingIndicator(threadID, function() {
-		yfinance.getQuotes(args[1], function (err, data) {
-			if(err) {
-				console.error(err);
-			} else if(data[0].Ask != null) {
-				var response = data[0].symbol.toUpperCase() + " $" + data[0].Ask + " " + arrow(data[0].Change) + " " + data[0].Change + " (" + data[0].ChangeinPercent + ")";
-				api.sendMessage(response, threadID);
-				console.log(data);
-			}
-		});
-		end();
-	});
+	superagent
+  	.get('https://api.iextrading.com/1.0/stock/'+args[1]+'/quote')
+  	.then(res => {
+    	const response = res.body.symbol + " $" + res.body.latestPrice + " " + arrow(res.body.change) + " " + res.body.change + " (" + (res.body.changePercent* 100).toFixed(2) + '%' + ")";
+			api.sendMessage(threadID, response);
+  	})
+  	.catch(err => {
+    	console.error(err);
+  	});
 }
 
 function arrow(change) {
