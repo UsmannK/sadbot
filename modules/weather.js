@@ -1,8 +1,11 @@
 var Forecast = require('forecast');
 var NodeGeocoder = require('node-geocoder');
 var moment = require('moment');
-var options = { provider: 'google' };
-var geocoder = NodeGeocoder(options);
+var geocoder = NodeGeocoder({
+  provider: 'locationiq',
+  apiKey: '2ce1700616751d',
+});
+
 var config = require('config');
 var forecast = new Forecast({
     service: 'forecast.io',
@@ -31,13 +34,15 @@ function getEmoji(weather) {
 }
 
 function trigger(city, api, message) {
+    var threadID = message.threadId;
+    message = message.message;
     city = city ? city : 'West Lafayette';
     var args = city.split(",");
-    var threadID = message.threadID;
     var sendCity = args[0] ? args[0] : city;
     geocoder.geocode(sendCity.trim(), function(err, res) {
         if (res === undefined || res.length == 0) { return console.error("could not geocode"); }
         forecast.get([res[0]['latitude'], res[0]['longitude']], function(err, weather) {
+            console.log(message)
             var response = "";
             if (err) return console.dir(err);
             if (args[1] == null) {
@@ -59,7 +64,7 @@ function trigger(city, api, message) {
             } else {
                 response = "Couldn't find weather :/";
             }
-            api.sendMessage(response, threadID);
+             api.sendMessage(threadID, response);
         });
     });
 }

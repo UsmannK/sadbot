@@ -1,14 +1,15 @@
 var modules = require('../modules.json');
 
-function trigger(body, api, message) {
-  var threadID = message.threadID;
+function trigger(args, api, message) {
+  var threadID = message.threadId;
+  body = message.message;
   var helpMessage;
   if(body.length > 1) {
     helpMessage = formDesc(body);
   } else {
     helpMessage = formHelp();
   }
-  api.sendMessage(helpMessage, threadID);
+  api.sendMessage(threadID, helpMessage);
 }
 
 function formHelp() {

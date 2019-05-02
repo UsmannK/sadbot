@@ -124,13 +124,6 @@
     "description": "Create a poll, and add options for users to vote on"
   },
   {
-    "name": "summary",
-    "trigger": "smmry",
-    "path": "modules/smmry.js",
-    "usage": {},
-    "description": "/smmry <link> returns a text summarization of a <link>"
-  },
-  {
     "name": "help",
     "trigger": "help",
     "path": "modules/help.js",
@@ -138,7 +131,7 @@
     "description": "/help shows sadbot usage and descriptions"
   },
   {
-	  "name": "vote",
+    "name": "vote",
     "trigger": "vote",
     "path": "modules/vote.js",
     "usage": {},
@@ -174,13 +167,6 @@
     "path": "modules/lmgtfy.js",
     "usage": {},
     "description": "/lmgtfy <search> generates a lmgtfy link"
-  },
-  {
-    "name": "wolfram",
-    "trigger": "wolfram",
-    "path": "modules/wolfram.js",
-    "usage": {},
-    "description": "/wolfram <query> returns <query> results from WolframAlpha"
   },
   {
     "name": "ping",
@@ -245,26 +231,6 @@
     "description": "/aesthetic <text> gives your <text> some much needed ａｅｓｔｈｅｔｉｃ"
   },
   {
-    "name": "twitter",
-    "trigger": "twitter",
-    "path": "modules/twitter.js",
-    "usage": "twitter <tweet url>",
-    "description": "echos out contents of a tweet to the chat"
-  },
-  {
-    "name": "tumblr",
-    "trigger": "tumblr",
-    "path": "modules/tumblr.js",
-    "usage": {
-      "auth": "connect your tumblr account to sadbot",
-      "list": "list all of your tumblr blogs",
-      "set <blog name>": "set your main blog, where content will be posted",
-      "post text <text>": "create a text post",
-      "post image <url>": "create a image post from a url"
-    },
-    "description": "allows users to post text and image posts to their tumblr blogs"  
-  },
-  {
     "name": "March Madness",
     "trigger": "mm",
     "path": "modules/marchmadness.js",
@@ -274,4 +240,3 @@
     "description": "get schedule of mm games"      
   }
 ]
-

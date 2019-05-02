@@ -1,7 +1,6 @@
-function trigger(message, api, messageObj) {
-  threadID = messageObj.threadID;
-  var spaceLoc = message.indexOf(' ');
-  api.sendMessage(message, threadID);
+function trigger(args, api, message) {
+  threadID = message.threadId;
+  api.sendMessage(threadID, message.message);
 }
 
 module.exports = {

@@ -3,7 +3,6 @@ require('./cronjobs.js');
 
 // load config
 var config = require('config');
-var login = require('facebook-chat-api');
 
 // load webserver
 var express = require('express');
@@ -11,13 +10,7 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/', require('./modules/tumblr_oauth'));
-app.listen(config.get('tumblr.callback_base').split(":")[2], function (err) {
-  if (err) {
-    throw err;
-  }
-  console.log('Listening on http://localhost:' + config.get('tumblr.callback_base').split(":")[2]);
-});
+
 
 // load module definitions
 var commandDescriptions = require('./modules.json');
@@ -29,25 +22,38 @@ var commands = commandDescriptions .map(function(cmd) {
   return require('./' + cmd['path']);
 });
 
-// login to the bot account
-login({email: config.get('botUsername'), password: config.get('botPassword')}, loginCallback);
+const { login } = require('libfb');
+
+// (async() => {
+// const api = await login('rob@kedarv.com', 'testingx1');
+
+
+//   console.log('Got a message!')
+//   console.log(message.message)
+//   api.sendMessage(message.threadId, message.message)
+
+
+// // login to the bot account
+// login({email: config.get('botUsername'), password: config.get('botPassword')}, loginCallback);
 
 // parse messages for handling
-function loginCallback(err, api) {
-  if(err) return console.error(err);
-  api.listen(function callback(err, message) {
-    if(isCommand(message)) {
-      var commandString = message.body.slice(prefixLen);
+
+(async() => {
+  const api = await login('rob@kedarv.com', 'testingx1');
+  api.on('message', message => {
+    message_text = message.message;
+    if(isCommand(message_text)) {
+      var commandString = message_text.slice(prefixLen);
       var trigger = commandString.substring(0, endOfCmd(commandString));
       commands.forEach(function(cmd, index) {
         if(trigger == commandDescriptions[index]['trigger']) {
-          cmd.trigger(commandString.slice(trigger.length+1), api, message);
+          const args = commandString.slice(trigger.length+1) || '';
+          cmd.trigger(args, api, message);
         }
       });
     }
   });
-}
-
+})();
 
 // determine the end of the command
 function endOfCmd(cmd) {
@@ -60,12 +66,12 @@ function endOfCmd(cmd) {
 
 // determine if a received message is a command
 function isCommand(message) {
-  if (!(message && message.body)) {
+  if (!(message)) {
     return false;
   } else if (config.get('usePrefix')) {
     prefixLen = config.get('botPrefix').length + 1;
-    return message.body.startsWith(config.get('botPrefix'));
+    return message.startsWith(config.get('botPrefix'));
   } else {
-    return message.body.startsWith('/');
+    return message.startsWith('/');
   }
 }
