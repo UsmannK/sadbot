@@ -19,7 +19,7 @@ var superagent = require('superagent');
 
 // parse messages for handling
 (async() => {
-  const api = await login('rob@kedarv.com', 'testingx1');
+  const api = await login(config.get('botUsername'), config.get('botPassword'));
   api.on('message', message => {
     message_text = message.message;
     if(isCommand(message_text)) {
