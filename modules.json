@@ -10,33 +10,11 @@
     "name": "weather",
     "trigger": "weather",
     "path": "modules/weather.js",
-    "usage": "weather <city>",
     "usage": {
       "<city>": "sends the current weather for <city>",
       "<city> daily": "sends the weekly weather for <city>" 
     },
     "description": "view weather information"
-  },
-  {
-    "name": "space",
-    "trigger": "space",
-    "path": "modules/space.js",
-    "usage": {},
-    "description": "/space sends a random space image to a thread"
-  },
-  {
-    "name": "kick user",
-    "trigger": "kick",
-    "path": "modules/kickUser.js",
-    "usage": {},
-    "description": "/kick <name OR nickname of user> kicks specified user from current thread"
-  },
-  {
-    "name": "add user",
-    "trigger": "add",
-    "path": "modules/addUser.js",
-    "usage": {},
-    "description": "/add <name OR nickname of user> adds specified user to current thread"
   },
   {
     "name": "color",
@@ -50,20 +28,6 @@
       "<hex>": "changes color of current thread to <hex>"
     },
     "description": "change the color of a thread"
-  },
-  {
-    "name": "giphy",
-    "trigger": "giphy",
-    "path": "modules/giphy.js",
-    "usage": {},
-    "description": "/giphy <phrase> searches <phrase> on giphy and returns a relevant gif"
-  },
-  {
-    "name": "yesno",
-    "trigger": "decide",
-    "path": "modules/yesno.js",
-    "usage": {},
-    "description": "/decide decides on an answer to any yes/no question and gives a (dis)approving gif"
   },
   {
     "name": "nickname",
@@ -138,13 +102,6 @@
     "description": "/vote <option #> votes for a poll option"
   },
   {
-    "name": "snippets",
-    "trigger": "snip",
-    "path": "modules/snippet.js",
-    "usage": {},
-    "description": "snippets"
-  },
-  {
     "name": "xkcd",
     "trigger": "xkcd",
     "path": "modules/xkcd.js",
@@ -153,20 +110,6 @@
       "random" : "get a random XKCD comic"
     },
     "description": "get a XCKD comic"
-  },
-  {
-    "name": "movie",
-    "trigger": "movie",
-    "path": "modules/movie.js",
-    "usage": {},
-    "description": "/movie <search> returns information about a movie or TV show"
-  },
-  {
-    "name": "lmgtfy",
-    "trigger": "lmgtfy",
-    "path": "modules/lmgtfy.js",
-    "usage": {},
-    "description": "/lmgtfy <search> generates a lmgtfy link"
   },
   {
     "name": "ping",
@@ -210,13 +153,6 @@
     "description": "see information about a pokemon or move"
   },
   {
-    "name": "weed",
-    "trigger": "weed",
-    "path": "modules/weed.js",
-    "usage": {},
-    "description": "/weed <strain> displays information on cannabis <strain>"
-  },
-  {
     "name": "stocks",
     "trigger": "stocks",
     "path": "modules/stocks.js",
@@ -231,12 +167,10 @@
     "description": "/aesthetic <text> gives your <text> some much needed ａｅｓｔｈｅｔｉｃ"
   },
   {
-    "name": "March Madness",
-    "trigger": "mm",
-    "path": "modules/marchmadness.js",
-    "usage": {
-      "auth": "get schedule"
-    },
-    "description": "get schedule of mm games"      
+    "name": "8ball",
+    "trigger": "8ball",
+    "path": "modules/8ball.js",
+    "usage": {},
+    "description": "/8ball <text> gives you some insight about your query"
   }
 ]

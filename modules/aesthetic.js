@@ -8,9 +8,9 @@
 var a = require('aesthetics');
 
 function trigger(message, api, messageObj) {
-  threadID = messageObj.threadID;
+  threadID = messageObj.threadId;
   var figged = a(message);
-  api.sendMessage(figged, threadID);
+  api.sendMessage(threadID, figged);
 }
 
 module.exports = {
