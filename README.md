@@ -15,38 +15,28 @@
 * **Remember**: rebuild the image for each code change by running step 1 again.
 
 ## Navigation
-* [Add User](#add-user)
+* [8ball](#8ball)
 * [Aesthetics](#aesthetics)
-* [Color](#color)
-* [Decide](#decide)
+* [Cowsay](#cowsay)
 * [Echo](#echo)
-* [Emoji](#emoji)
+* [Help](#help)
 * [Figlet](#figlet)
-* [Giphy](#giphy)
-* [Karma](#karma)
-* [Let Me Google That for You](#lmgtfy)
-* [March Madness](#march-madness)
-* [Movie Search](#movie-search)
-* [Nickname](#nickname)
-* [Notifications](#ping)
-* [Poll](#poll)
-* [Pokedex](#pokedex)
-* [Remove User](#remove-user)
-* [Space](#space)
-* [Summary](#summary)
-* [Title](#title)
-* [Vote](#vote)
+* [Stocks](#stocks)
 * [Weather](#weather)
-* [Weed](#weed)
-* [Wolfram](#wolfram)
 * [XKCD](#XKCD)
+* [Yelp](#Yelp)
+* [Color (broken)](#color)
+* [Emoji (broken)](#emoji)
+* [Karma (broken)](#karma)
+* [Nickname (broken)](#nickname)
+* [Notifications (broken)](#ping)
+* [Poll (broken)](#poll)
+* [Pokedex (broken)](#pokedex)
+* [Title (broken)](#title)
+* [Vote (broken)](#vote)
 
 ## Commands
 
-### Add User
-Adds user to thread, given name
-
-`/add <name>`
 
 ### Aesthetics
 Sends text with better ａｅｓｔｈｅｔｉｃ
@@ -69,10 +59,10 @@ Sends the `cowsay` output of a message.
 
 `/cowsay <message>`
 
-### Decide
-Makes a yes/no decision for you, and sends a corresponding gif.
+### 8ball
+Asks the mysterious 8ball for an answer to your question
 
-`/decide <yes-or-no question>`
+`/8ball <question>`
 
 ### Echo
 Sends the specified message.
@@ -91,30 +81,12 @@ Sends a figlet ASCII figure of a message.
 
 `/figlet <message>`
 
-### Giphy
-Connects to Giphy to send gifs corresponding to search term. If no search term is provided, it will send a random gif.
-
-`/giphy <search term>`
-
-`/giphy`
-
 ### Karma
 `/++ <user>` Increase a user's karma
 
 `/-- <user>` Decrease a user's karma
 
 `/karma <user>` Check a user's karma
-
-### LMGTFY
-`/lmgtfy <phrase>` Generates a snarky LMGTFY link (shortened, of course)
-
-### March Madness
-`/mm` Get all the scheduled March Madness games
-
-`/mm live` Get a list of currently live games with scores and the time remaining
-
-### Movie Search
-`/movie <search term>` Search for a movie or TV show. Returns cover art, run status, and IMDb rating
 
 ### Nickname
 Check or modify nicknames
@@ -146,21 +118,6 @@ Allows access to pokémon and move information
 
 `/pokedex move <move name>` Display move information
 
-### Remove User
-Removes user from thread, given name or thread nickname
-
-`/kick <name>`
-
-`/kick <nickname>`
-
-### Space
-Sends a random space-related image to thread.
-
-`/space`
-
-### Summary
-`/smmry <url>` Produces a summary of an article
-
 ### Title
 Sets title of thread.
 
@@ -176,14 +133,6 @@ Sends weather information for given location.
 
 `/weather <location> daily`
 
-### Weed
-Provides strain information and effects for given query.
-
-`/weed <strain name>`
-
-### Wolfram
-`/wolfram <query>` Queries wolfram alpha to solve your question
-
 ### XKCD
 `/xkcd <comic id>` Get the XKCD comic with id `<comic id>`
 
@@ -191,6 +140,8 @@ Provides strain information and effects for given query.
 
 `/xkcd today` Most recent XKCD comic
 
+### Yelp
+`/yelp <business>` Get information about a `<business>`
 
 
 ## Credits

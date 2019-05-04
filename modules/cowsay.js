@@ -5,17 +5,15 @@
  *  Author: j <jay@jayhankins.me>
  */
 
-var cowsay = require('cowsay');
+const cowsay = require('cowsay');
 
 function trigger(message, api, messageObj) {
-  threadID = messageObj.threadId;
-  var msg = cowsay.say({
-    text : message
+  const msg = cowsay.say({
+    text: message
   });
-  api.sendMessage(threadID, '```' + msg + '```');
-
+  api.sendMessage(messageObj.threadId, `\`\`\`${msg}\`\`\``);
 }
 
 module.exports = {
-  trigger: trigger
-}
+  trigger
+};

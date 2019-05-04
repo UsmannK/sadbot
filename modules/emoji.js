@@ -45,7 +45,7 @@ function getMeAnEmoji(word) {
       return allEmojis[emoji].char;
   }
   return '';
-};
+}
 module.exports = {
   trigger: trigger
 }

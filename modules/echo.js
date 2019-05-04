@@ -1,8 +1,7 @@
 function trigger(args, api, message) {
-  threadID = message.threadId;
-  api.sendMessage(threadID, args);
+  api.sendMessage(message.threadId, args);
 }
 
 module.exports = {
-  trigger: trigger
-}
+  trigger
+};

@@ -172,5 +172,12 @@
     "path": "modules/8ball.js",
     "usage": {},
     "description": "/8ball <text> gives you some insight about your query"
+  },
+  {
+    "name": "yelp",
+    "trigger": "yelp",
+    "path": "modules/yelp.js",
+    "usage": {},
+    "description": "/yelp <business> gets a <business> in San Francisco"
   }
 ]

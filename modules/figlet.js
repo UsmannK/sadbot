@@ -5,26 +5,29 @@
  *  Author: j <jay@jayhankins.me>
  */
 
-var figlet = require('figlet');
+const figlet = require('figlet');
 
 function trigger(message, api, messageObj) {
   threadID = messageObj.threadId;
-  var figged = '```\n' + makeFig(message) + '```';
+  const figged = `\`\`\`\n${makeFig(message)}\`\`\``;
   api.sendMessage(threadID, figged);
 }
 
 function makeFig(message) {
-	return figlet.textSync(message, {
-	    font: 'Small'
-	}, function(err, data) {
-	    if (err) {
-	        console.log('Something went wrong...');
-	        console.dir(err);
-	        return;
-	    }
-	});
+  return figlet.textSync(
+    message,
+    {
+      font: 'Small'
+    },
+    function(err, data) {
+      if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+      }
+    }
+  );
 }
 
 module.exports = {
-  trigger: trigger
-}
+  trigger
+};

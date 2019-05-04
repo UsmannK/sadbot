@@ -19,13 +19,12 @@ const responses = [
   'my sources say no',
   'outlook not so good',
   'very doubtful'
-]
+];
 
 function trigger(args, api, message) {
-  threadID = message.threadId;
-  api.sendMessage(threadID, responses[Math.floor(responses.length * Math.random())]);
+  api.sendMessage(message.threadId, responses[Math.floor(responses.length * Math.random())]);
 }
 
 module.exports = {
-  trigger: trigger
-}
+  trigger
+};
