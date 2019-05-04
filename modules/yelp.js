@@ -15,7 +15,7 @@ function trigger(search, api, message) {
     .query({ term: query, location: 'San Francisco' })
     .end(function(err, res) {
       if (err || !res.ok) {
-        console.error('Error getting XKCD comic: %o', err);
+        console.error('Error getting Yelp Business: %o', err);
       } else {
         const biz = res.body.businesses[0];
         const response = `${biz.name} ${biz.rating}/5.0 [${biz.url.split('?')[0]}]`;

@@ -179,5 +179,12 @@
     "path": "modules/yelp.js",
     "usage": {},
     "description": "/yelp <business> gets a <business> in San Francisco"
+  },
+  {
+    "name": "tv",
+    "trigger": "tv",
+    "path": "modules/tv.js",
+    "usage": {},
+    "description": "/tv <show> returns information about the show or next episode if still running."
   }
 ]

@@ -21,6 +21,7 @@
     "forecast": "^0.3.2",
     "libfb": "^1.4.11",
     "moment": "^2.14.1",
+    "moment-timezone": "^0.5.25",
     "node-geocoder": "^3.22.0",
     "nodemon": "^1.9.2",
     "pokedex-promise-v2": "^3.0.1",
