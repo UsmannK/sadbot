@@ -71,7 +71,7 @@
   {
     "name": "cowsay",
     "trigger": "cowsay",
-    "path": "modules/cowsay.js",
+    "path": "modules/cowsay.ts",
     "usage": {},
     "description": "/cowsay <message> replies with a cowsay of <message>"
   },
@@ -90,7 +90,7 @@
   {
     "name": "help",
     "trigger": "help",
-    "path": "modules/help.js",
+    "path": "modules/help.ts",
     "usage": {},
     "description": "/help shows sadbot usage and descriptions"
   },
