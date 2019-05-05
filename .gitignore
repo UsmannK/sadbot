@@ -6,3 +6,4 @@ config/
 !config/default.json.example
 pokedex*.png
 *.log*
+build/

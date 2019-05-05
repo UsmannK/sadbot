@@ -6,9 +6,12 @@
   "scripts": {
     "lint": "eslint",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon main"
+    "dev": "ts-node ./src/main.ts",
+    "start": "nodemon",
+    "tsc": "tsc"
   },
   "dependencies": {
+    "@types/node": "^12.0.0",
     "aesthetics": "^2.0.8",
     "body-parser": "^1.19.0",
     "color": "^0.11.3",
@@ -26,7 +29,9 @@
     "nodemon": "^1.9.2",
     "pokedex-promise-v2": "^3.0.1",
     "request": "^2.88.0",
-    "superagent": "^5.0.5"
+    "superagent": "^5.0.5",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
@@ -47,5 +52,18 @@
   "bugs": {
     "url": "https://github.com/UsmannK/sadbot/issues"
   },
-  "homepage": "https://github.com/UsmannK/sadbot#readme"
+  "homepage": "https://github.com/UsmannK/sadbot#readme",
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.ts",
+      "**/*.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm run dev",
+    "ext": "ts"
+  }
 }
