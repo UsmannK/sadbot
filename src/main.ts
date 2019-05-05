@@ -1,14 +1,15 @@
 // load config
 const config = require('config');
-const { login } = require('libfb');
+import { login, Message } from 'libfb';
+import { Module, Command } from './types';
 
 // load module definitions
-const commandDescriptions = require('./modules.json');
+const commandDescriptions: Module[] = require('./modules.json');
 
-const prefixLen = 1;
+let prefixLen = 1;
 
 // return module that handles a command
-const commands = commandDescriptions.map(function(cmd) {
+const commands: Command[] = commandDescriptions.map(function(cmd) {
   return require(`./${cmd.path}`);
 });
 
@@ -23,9 +24,9 @@ const thanks = [
 ];
 
 // parse messages for handling
-(async () => {
+const run = async () => {
   const api = await login(config.get('botUsername'), config.get('botPassword'));
-  api.on('message', message => {
+  api.on('message', (message: Message) => {
     if (isCommand(message.message)) {
       const commandString = message.message.slice(prefixLen);
       const trigger = commandString.substring(0, endOfCmd(commandString));
@@ -39,10 +40,10 @@ const thanks = [
       api.sendMessage(message.threadId, thanks[Math.floor(thanks.length * Math.random())]);
     }
   });
-})();
+};
 
 // determine the end of the command
-function endOfCmd(cmd) {
+function endOfCmd(cmd: string) {
   if (cmd.indexOf(' ') > 0) {
     return cmd.indexOf(' ');
   }
@@ -50,7 +51,7 @@ function endOfCmd(cmd) {
 }
 
 // determine if a received message is a command
-function isCommand(message) {
+function isCommand(message: string) {
   if (!message) {
     return false;
   }
@@ -60,3 +61,5 @@ function isCommand(message) {
   }
   return message.startsWith('/');
 }
+
+run();

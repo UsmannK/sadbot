@@ -2,7 +2,7 @@
   {
     "name": "echo",
     "trigger": "echo",
-    "path": "modules/echo.js",
+    "path": "modules/echo.ts",
     "usage": {},
     "description": "/echo <message> repeats <message> back to thread"
   },
@@ -12,7 +12,7 @@
     "path": "modules/weather.js",
     "usage": {
       "<city>": "sends the current weather for <city>",
-      "<city> daily": "sends the weekly weather for <city>" 
+      "<city> daily": "sends the weekly weather for <city>"
     },
     "description": "view weather information"
   },
@@ -33,7 +33,7 @@
     "name": "nickname",
     "trigger": "nick",
     "path": "modules/nickname.js",
-    "usage" : {
+    "usage": {
       "[]": "Gets your nickname",
       "<name>": "Gets nickname of specified user",
       "<name>, <nickname>": "Sets user <name> nickname to <nickname>"
@@ -80,10 +80,10 @@
     "trigger": "poll",
     "path": "modules/poll.js",
     "usage": {
-      "create <question>" : "Creates a poll with title <question> if a poll does not exist already",
-      "add <option>" : "Adds an <option> to an existing poll",
-      "delete <option>" : "Deletes an <option> in an existing poll",
-      "view" : "Prints the poll with vote counts"
+      "create <question>": "Creates a poll with title <question> if a poll does not exist already",
+      "add <option>": "Adds an <option> to an existing poll",
+      "delete <option>": "Deletes an <option> in an existing poll",
+      "view": "Prints the poll with vote counts"
     },
     "description": "Create a poll, and add options for users to vote on"
   },
@@ -106,8 +106,8 @@
     "trigger": "xkcd",
     "path": "modules/xkcd.js",
     "usage": {
-      "[] OR today" : "get the most recent XKCD comic",
-      "random" : "get a random XKCD comic"
+      "[] OR today": "get the most recent XKCD comic",
+      "random": "get a random XKCD comic"
     },
     "description": "get a XCKD comic"
   },
@@ -137,7 +137,7 @@
     "trigger": "karma",
     "path": "modules/karma.js",
     "usage": {
-      "[]" : "Returns your karma",
+      "[]": "Returns your karma",
       "<username>": "Returns a user's karma count"
     },
     "description": "check a user's karma"
@@ -147,8 +147,8 @@
     "trigger": "pokedex",
     "path": "modules/pokedex.js",
     "usage": {
-      "<pokemon-name OR pokemon-id>" : "displays information about specified pokemon",
-      "move <move-name>" : "displays information about a pokemon move"
+      "<pokemon-name OR pokemon-id>": "displays information about specified pokemon",
+      "move <move-name>": "displays information about a pokemon move"
     },
     "description": "see information about a pokemon or move"
   },
