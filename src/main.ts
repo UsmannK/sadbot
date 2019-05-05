@@ -4,7 +4,8 @@ import { login, Message } from 'libfb';
 import { Module, Command } from './types';
 
 // load module definitions
-const commandDescriptions: Module[] = require('./modules.json');
+import m from './modules.json';
+const commandDescriptions = <Module[]>m;
 
 let prefixLen = 1;
 

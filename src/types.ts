@@ -4,7 +4,7 @@ export interface Module {
   name: string;
   trigger: string;
   path: string;
-  usage: any; //todo
+  usage: { [s: string]: string }; //todo
   description: string;
 }
 
