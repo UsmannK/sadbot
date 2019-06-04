@@ -1,5 +1,5 @@
 # sadbot 🌊
-*Facebook Messenger bot dedicated to furthering the cause of sadboyz*
+*On March 1st, 2017 zuck finally found and took down sadbot. This repo stands in memoriam. Goodnight, sweet prince.*
 
 ## Installation
 ### Locally:
